@@ -1,0 +1,6 @@
+{
+    "dbURI": "mongodb+srv://YLuong:Hunghuong@cluster0.mjr53.mongodb.net/ecommerce?retryWrites=true&w=majority",
+    "jwtsecret": "luong-van-y-k12tt",
+    "StripeAPIKey": "YOUR STRIPE SECRET API KEY",
+    "port": 3000
+}
