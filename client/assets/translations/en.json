@@ -1,0 +1,14 @@
+{
+  "email_null_error": "Please Enter your email",
+  "invalid_email_error": "Please Enter Valid Email",
+  "pass_null_error": "Please Enter your password",
+  "too_short_pass_error": "Password is too short",
+  "match_pass_error": "Passwords don't match",
+  "name_null_error": "Please Enter your name",
+  "phone_number_null_error": "Please Enter your phone number",
+  "address_null_error": "Please Enter your address",
+  "splash_text_1": "Welcome to YSHOP,\nLet shop!",
+  "splash_text_2": "We help people connect with store\naround VietNam",
+  "splash_text_3": "We show the easy way to shop.\nJust stay at home with us",
+  "continue_btn_text": "Continue"
+}
