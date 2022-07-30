@@ -2,5 +2,10 @@
     "dbURI": "mongodb+srv://YLuong:Hunghuong@cluster0.mjr53.mongodb.net/ecommerce?retryWrites=true&w=majority",
     "jwtsecret": "luong-van-y-k12tt",
     "StripeAPIKey": "YOUR STRIPE SECRET API KEY",
-    "port": 3000
+    "port": 3000,
+    "default_avatar": "6281ed9c9a1b10dc7b20046a",
+    "otp-secret-key": "random_otp",
+    "cloud_name": "luongvany",
+    "cloud_name_api_key": "728673938955779",
+    "cloud_name_api_secret": "1peUMxiYEAlq_ziWTn7VruQvggg"
 }

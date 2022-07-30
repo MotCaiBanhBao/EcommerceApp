@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+<string>This app needs access to location when open.</string>
+<key>NSLocationAlwaysUsageDescription</key>
+<string>This app needs access to location when in the background.</string>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -10,6 +16,11 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>vi</string>
+	</array>
 	<key>CFBundleName</key>
 	<string>client</string>
 	<key>CFBundlePackageType</key>
@@ -22,6 +33,23 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Need camera access for uploading images</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Need location access for updating nearby friends</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app will use your location to show cool stuffs near you.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Need microphone access for searching</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need photo library access for uploading images</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Nhan dien</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -39,26 +67,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>CFBundleLocalizations</key>
-	<array>
-		<string>en</string>
-		<string>vi</string>
-	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Nhan dien</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Need microphone access for searching</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Need camera access for uploading images</string>
-	<key>NSLocationUsageDescription</key>
-	<string>Need location access for updating nearby friends</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app will use your location to show cool stuffs near you.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Need photo library access for uploading images</string>
-	<key>CADisableMinimumFrameDurationOnPhone</key>
-	<true/>
 </dict>
 </plist>

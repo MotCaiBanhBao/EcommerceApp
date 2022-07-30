@@ -1,0 +1,165 @@
+# Query: getProportionateScreenWidth(20)
+# ContextLines: 1
+
+39 results - 24 files
+
+client/lib/app/components/category_panel.dart:
+  18            padding:
+  19:               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+  20            child: SectionTitle(title: title, press: onPress),
+  21          ),
+  22:         SizedBox(height: getProportionateScreenWidth(20)),
+  23        ],
+
+client/lib/app/components/custom_surfix_icon.dart:
+  18          0,
+  19:         getProportionateScreenWidth(20),
+  20:         getProportionateScreenWidth(20),
+  21:         getProportionateScreenWidth(20),
+  22        ),
+
+client/lib/app/components/default_dialog.dart:
+  18          0,
+  19:         getProportionateScreenWidth(20),
+  20:         getProportionateScreenWidth(20),
+  21:         getProportionateScreenWidth(20),
+  22        ),
+
+client/lib/app/components/product_card.dart:
+  39                  child: Container(
+  40:                   padding: EdgeInsets.all(defaultPadding),
+  41                    decoration: BoxDecoration(
+
+client/lib/app/helper/constants.dart:
+  25  const kTextColor = Color(0xFF757575);
+  26: double defaultPadding = getProportionateScreenWidth(20);
+  27  
+
+client/lib/app/modules/cart/views/components/body.dart:
+  16        padding:
+  17:           EdgeInsets.symmetric(horizontal: defaultPadding),
+  18        child: ListView.builder(
+
+client/lib/app/modules/complete_profile/views/components/body.dart:
+  14            padding:
+  15:               EdgeInsets.symmetric(horizontal: defaultPadding),
+  16            child: SingleChildScrollView(
+
+client/lib/app/modules/dashboard/views/components/categories.dart:
+  16      return Padding(
+  17:       padding: EdgeInsets.all(defaultPadding),
+  18        child: Row(
+
+client/lib/app/modules/dashboard/views/components/discount_banner.dart:
+  14        width: double.infinity,
+  15:       margin: EdgeInsets.all(defaultPadding),
+  16        padding: EdgeInsets.symmetric(
+  17:         horizontal: defaultPadding,
+  18          vertical: getProportionateScreenWidth(15),
+
+client/lib/app/modules/dashboard/views/components/home_header.dart:
+  16        padding:
+  17:           EdgeInsets.symmetric(horizontal: defaultPadding),
+  18        child: Row(
+
+client/lib/app/modules/dashboard/views/components/popular_product.dart:
+  17              padding: EdgeInsets.symmetric(
+  18:                 horizontal: defaultPadding),
+  19              child: SectionTitle(title: "Popular Products", press: () {}),
+  20            ),
+  21:           SizedBox(height: defaultPadding),
+  22            state.status.isSuccess
+
+  38                        ),
+  39:                       SizedBox(width: defaultPadding),
+  40                      ],
+
+client/lib/app/modules/dashboard/views/components/recomment_product.dart:
+  21          padding:
+  22:             EdgeInsets.symmetric(horizontal: defaultPadding),
+  23          child: state.status.isSuccess
+
+client/lib/app/modules/dashboard/views/components/search_field.dart:
+  22              contentPadding: EdgeInsets.symmetric(
+  23:                 horizontal: defaultPadding,
+  24                  vertical: getProportionateScreenWidth(9)),
+
+client/lib/app/modules/dashboard/views/components/special_offers.dart:
+  15            padding:
+  16:               EdgeInsets.symmetric(horizontal: defaultPadding),
+  17            child: SectionTitle(
+
+  21          ),
+  22:         SizedBox(height: defaultPadding),
+  23          SingleChildScrollView(
+
+  38                ),
+  39:               SizedBox(width: defaultPadding),
+  40              ],
+
+  63      return Padding(
+  64:       padding: EdgeInsets.only(left: defaultPadding),
+  65        child: GestureDetector(
+
+client/lib/app/modules/details/views/components/color_dots.dart:
+  21        padding:
+  22:           EdgeInsets.symmetric(horizontal: defaultPadding),
+  23        child: Row(
+
+  36            ),
+  37:           SizedBox(width: defaultPadding),
+  38            RoundedIconBtn(
+
+client/lib/app/modules/details/views/components/custom_app_bar.dart:
+  19          padding:
+  20:             EdgeInsets.symmetric(horizontal: defaultPadding),
+  21          child: Row(
+
+client/lib/app/modules/details/views/components/product_description.dart:
+  24            padding:
+  25:               EdgeInsets.symmetric(horizontal: defaultPadding),
+  26            child: Text(
+
+  53            padding: EdgeInsets.only(
+  54:             left: defaultPadding,
+  55              right: getProportionateScreenWidth(64),
+
+  63            padding: EdgeInsets.symmetric(
+  64:             horizontal: defaultPadding,
+  65              vertical: 10,
+
+client/lib/app/modules/details/views/components/product_images.dart:
+  41          ),
+  42:         // SizedBox(height: getProportionateScreenWidth(20)),
+  43          Row(
+
+client/lib/app/modules/details/views/components/top_rounded_container.dart:
+  17      return Container(
+  18:       margin: EdgeInsets.only(top: defaultPadding),
+  19:       padding: EdgeInsets.only(top: defaultPadding),
+  20        width: double.infinity,
+
+client/lib/app/modules/forgot_password/views/components/body.dart:
+  17            padding:
+  18:               EdgeInsets.symmetric(horizontal: defaultPadding),
+  19            child: Column(
+
+client/lib/app/modules/otp/views/components/body.dart:
+  19              padding: EdgeInsets.symmetric(
+  20:                 horizontal: defaultPadding),
+  21              child: SingleChildScrollView(
+
+client/lib/app/modules/sign_in/views/components/body.dart:
+  14            padding:
+  15:               EdgeInsets.symmetric(horizontal: defaultPadding),
+  16            child: SingleChildScrollView(
+
+client/lib/app/modules/sign_up/views/components/body.dart:
+  15            padding:
+  16:               EdgeInsets.symmetric(horizontal: defaultPadding),
+  17            child: SingleChildScrollView(
+
+client/lib/app/modules/splash/views/components/body.dart:
+  59                  padding: EdgeInsets.symmetric(
+  60:                     horizontal: ),
+  61                  child: Column(

@@ -1,5 +1,5 @@
 const Cart = require('../models/Cart');
-const Item = require('../models/Item');
+const Product = require('../models/Product');
 
 module.exports.get_cart_items = async (req,res) => {
     const userId = req.params.id;
@@ -24,7 +24,7 @@ module.exports.add_cart_item = async (req,res) => {
 
     try{
         let cart = await Cart.findOne({userId});
-        let item = await Item.findOne({_id: productId});
+        let item = await Product.findOne({_id: productId});
         if(!item){
             res.status(404).send('Item not found!')
         }

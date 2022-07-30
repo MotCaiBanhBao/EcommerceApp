@@ -10,7 +10,11 @@ const CategorySchema = new Schema({
     desc: {
         type: String,
         require: false
-    }
+    },
+    image: {
+        type: String
+    },
+    nested_category: [  { type: Schema.Types.ObjectId, ref: 'category' },]
 })
 
 module.exports = Category = mongoose.model('category', CategorySchema);

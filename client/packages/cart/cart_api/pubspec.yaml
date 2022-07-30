@@ -1,0 +1,15 @@
+name: cart_api
+description: local repository 
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  flutter:
+      sdk: flutter
+  flutter_lints: ^2.0.1
+  equatable: ^2.0.3
+  uuid: ^3.0.6 
+  json_annotation: ^4.5.0

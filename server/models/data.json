@@ -1,0 +1,104 @@
+[
+    {
+        "name": "Túi, váy nữ",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000276/categories/TuiVayNu_lidwod.png"
+    },
+    {
+       "name": "Sức khoẻ",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000276/categories/SucKhoe_fdakgs.png"
+    },
+    {
+        "name": "Thời trang nữ",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000276/categories/ThoiTrangNu_ebxcse.png"
+    },
+    {
+        "name": "Thời trang trẻ em",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000276/categories/ThoiTrangTreEm_ok5kpq.png"
+    },
+    {
+       "name": "Thời trang nam",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000276/categories/ThoiTrangNam_yhmqrz.png"
+
+    },
+{
+        "name": "Thiết bị gia dụng",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000276/categories/ThietBiDienGiaDung_sd3iex.png"
+    },
+    {
+       "name": "Thiết bị điện tử",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000275/categories/ThietBiDienTu_lcrudt.png"
+    },
+    {
+        "name": "Ô tô, xe máy",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000275/categories/OtoXeMay_wuilwv.png"
+    },
+    {
+        "name": "Phụ kiện, trang sức",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000275/categories/PhuKienTrangSucNu_k6esyb.png"
+    },
+    {
+       "name": "Sức đẹp",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000275/categories/SacDep_ewcowr.png"
+
+    },{
+        "name": "Thể thao, du lịch",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000275/categories/TheThaoDuLich_jlyune.png"
+    },
+    {
+       "name": "Nhà sách online",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000275/categories/NhaSachOnline_ajekt8.png"
+    },
+    {
+        "name": "Nhà cửa, đời sống",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000275/categories/NhaCuuDoiSong_gcznap.png"
+    },
+    {
+        "name": "Máy ảnh và máy quay",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000274/categories/MayAnhVaMayQuay_n8ie9n.png"
+    },
+    {
+       "name": "Mẹ và bé",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000274/categories/MeVaBe_zflplg.png"
+
+    },{
+        "name": "Giặt giũ và chăm sóc nhà cửa",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000274/categories/GiatDuVaChamSocNhaCua_ng7mwd.png"
+    },
+    {
+       "name": "Máy tính và laptop",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000274/categories/MayTinhVaLapTop_rhucpi.png"
+    },
+    {
+        "name": "Giày dép nam",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000274/categories/GiayDepNam_b89lai.png"
+    },
+    {
+        "name": "Giày dép nữ",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000274/categories/GiayDepNu_xg3whr.png"
+    },
+    {
+       "name": "Đồng hồ",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000273/categories/DongHo_io7c6w.png"
+
+    },{
+        "name": "Bách hoá online",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000273/categories/BachHoaOnlINE_b3ctvn.png"
+    },
+    {
+       "name": "Đồ chơi trẻ em",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000273/categories/DoChoiTreEm_mejmli.png"
+    },
+    {
+        "name": "Balo, áo, ví nam",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000273/categories/BaloAoViNam_t5ptbt.png"
+    },
+    {
+        "name": "Chăm sóc thú cưng",
+        "image": "https://res.cloudinary.com/luongvany/image/upload/v1657000273/categories/ChamSocThuCung_ij050u.png"
+    },
+    {
+       "name": "https://res.cloudinary.com/luongvany/image/upload/v1657000273/categories/DienThoaiPhuKien_wzpotn.png",
+        "image": "Phụ kiện điện thoại"
+
+    }
+]

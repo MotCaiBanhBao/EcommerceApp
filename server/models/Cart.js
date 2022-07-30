@@ -10,6 +10,7 @@ const CartSchema = new Schema({
             type: String,
         },
         name: String,
+        variationID: String,
         quantity: {
             type: Number,
             required: true,
@@ -17,7 +18,7 @@ const CartSchema = new Schema({
             deafult: 1
         },
         price: Number
-    }],
+    }], 
     bill: {
         type: Number,
         required: true,

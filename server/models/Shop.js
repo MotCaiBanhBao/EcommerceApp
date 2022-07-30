@@ -1,37 +1,30 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Item = require('./Item');
+require('./Product');
+require('./User');
 
 const ShopSchema = new Schema({
-    shopName: {
+    shop_name: {
         type: String,
         required: true
+    },
+    address: {
+        type: String,
+    },
+    phone_number: {
+        type: String
     },
     desc: String,
     register_date: {
         type: Date,
         default: Date.now
     },
-    member: [String],
-    product: [Item],
-
-    pendingProduct: [{
-        idProduct: String,
-        idUser: String,
-        userRequest: String,
-        data: [{
-            quantity: {
-                type: String,
-                default: 1
-            },
-            color: {
-                type: String,
-                default: ''
-            }
-        }]
+    product: [{ type: Schema.Types.ObjectId, ref: 'product' },],
+    pending_order: [{
+        type: Schema.Types.ObjectId, ref: 'order'
     }],
     
-    productSold: [{
+    product_sold: [{
         idProduct: String,
         dateSold: {
             type: Date,
@@ -39,7 +32,7 @@ const ShopSchema = new Schema({
         },
         price: String,
     }],
-    shopRating: Number,
+    shop_rating: Number,
 })
 
 module.exports = Shop = mongoose.model('shop', ShopSchema);
