@@ -2836,14 +2836,14 @@ Bảng .: Mô tả bảng User
 |    |         | dạng String                                          |
 |    |         |                                                      |
 |    |         | \- UserData: Thông tin người dùng, được lưu dưới     |
-|    |         | dạng Map\<String, String>                            |
+|    |         | dạng Map\<String, String\>                           |
 |    |         |                                                      |
 |    |         | \- FavoriteItem: Sản phẩm ưu thích của người dùng,   |
 |    |         | chứa các mã - ID của sản phẩm, được lưu dưới dạng    |
-|    |         | List\<String>                                        |
+|    |         | List\<String\>                                       |
 |    |         |                                                      |
 |    |         | \- OrderID: Khoá ngoại, tham chiếu đến bảng Order,   |
-|    |         | lưu dưới dạng List\<String>                          |
+|    |         | lưu dưới dạng List\<String\>                         |
 |    |         |                                                      |
 |    |         | \- PhoneNumber: Số điện thoại của người dùng, được   |
 |    |         | lưu dưới dạng String                                 |
@@ -2871,7 +2871,7 @@ Bảng .: Mô tả bảng Cart
 | 2  | Các thành | \- ID: Mã định danh lưu dưới dạng String           |
 |    | phần      |                                                    |
 |    |           | \- Product: Khoá ngoại tham chiếu đến bảng         |
-|    |           | Product, lưu trữ dưới dạng List\<String>           |
+|    |           | Product, lưu trữ dưới dạng List\<String\>          |
 |    |           |                                                    |
 |    |           | \- TotalPrice: Tổng thành tiền của giỏ, lưu trữ    |
 |    |           | dưới dạng Numeric                                  |
@@ -2896,19 +2896,19 @@ Bảng .: Mô tả bảng Shop
 |    |           | \- ShopName: Tên Shop lưu dưới dạng String          |
 |    |           |                                                     |
 |    |           | \- Member: Gồm danh sách mã các thành viên lưu dưới |
-|    |           | dạng List\<String>                                  |
+|    |           | dạng List\<String\>                                 |
 |    |           |                                                     |
 |    |           | \- Product: Gồm danh sách mã các sản phẩm lưu dưới  |
-|    |           | dạng List\<String>                                  |
+|    |           | dạng List\<String\>                                 |
 |    |           |                                                     |
 |    |           | \- PendingProduct: Gồm danh sách mã các sản phẩm    |
-|    |           | đang đợi lưu dưới dạng List\<String>                |
+|    |           | đang đợi lưu dưới dạng List\<String\>               |
 |    |           |                                                     |
 |    |           | \- ProductSold: Gồm danh sách mã các sản phẩm đã    |
-|    |           | được bán lưu dưới dạng List\<String>                |
+|    |           | được bán lưu dưới dạng List\<String\>               |
 |    |           |                                                     |
 |    |           | \- Voucher: Gồm danh sách mã các voucher lưu dưới   |
-|    |           | dạng List\<String>                                  |
+|    |           | dạng List\<String\>                                 |
 |    |           |                                                     |
 |    |           | \- Address: Địa chỉ nhận hàng, lưu dưới dạng String |
 |    |           |                                                     |
@@ -2943,7 +2943,7 @@ Bảng .: Mô tả bảng Order
 |    |            | dưới dạng String                                  |
 |    |            |                                                   |
 |    |            | \- OrderDetail: Khoá ngoại tham chiếu đến bảng    |
-|    |            | OrderDetail List\<String>                         |
+|    |            | OrderDetail List\<String\>                        |
 |    |            |                                                   |
 |    |            | \- ShipAdress: Địa chỉ Ship hàng lưu dưới dạng    |
 |    |            | String                                            |
@@ -3013,7 +3013,7 @@ Bảng .: Mô tả bảng ChatData
 |    |         | dưới dạng String                                     |
 |    |         |                                                      |
 |    |         | \- Data: Dữ liệu lưu dưới dạng List\<Map\<String,    |
-|    |         | Date>\>                                              |
+|    |         | Date\>\>                                             |
 +----+---------+------------------------------------------------------+
 | 3  | Các mối | Mối quan hệ 1..1: Không                              |
 |    | quan hệ |                                                      |
@@ -3042,8 +3042,8 @@ Bảng .: Mô tả bảng Role
 |    |         | dưới dạng String: Kiểu sản phẩm lưu dưới dạng phẩm   |
 |    |         | String                                               |
 |    |         |                                                      |
-|    |         | \- Permissions: List\<String>: Quyền hạn của người   |
-|    |         | dùng, lưu dưới dạng List\<String>                    |
+|    |         | \- Permissions: List\<String\>: Quyền hạn của người  |
+|    |         | dùng, lưu dưới dạng List\<String\>                   |
 +----+---------+------------------------------------------------------+
 | 3  | Các mối | Mối quan hệ 1..1: Không                              |
 |    | quan hệ |                                                      |
@@ -3076,7 +3076,7 @@ Bảng .: Mô tả bảng Voucher
 |    |             | dạng Date                                         |
 |    |             |                                                   |
 |    |             | \- ApplicableProd: Danh sách áp dụng, lưu dưới    |
-|    |             | dạng List\<String>                                |
+|    |             | dạng List\<String\>                               |
 +----+-------------+---------------------------------------------------+
 | 3  | Các mối     | Mối quan hệ 1..1: Không                           |
 |    | quan hệ     |                                                   |
@@ -3106,7 +3106,7 @@ Bảng .: Mô tả bảng Product
 |    |           | String                                              |
 |    |           |                                                     |
 |    |           | \- ProductDetails: Chi tiết của sản phẩm, lưu dưới  |
-|    |           | dạng Map\<String, String>                           |
+|    |           | dạng Map\<String, String\>                          |
 |    |           |                                                     |
 |    |           | \- Category: Danh mục sản phẩm, lưu dưới dạng       |
 |    |           | String                                              |
@@ -3172,10 +3172,10 @@ Bảng .: Mô tả bảng Variations
 | 2  | Các      | \- ID: Mã định danh lưu dưới dạng String             |
 |    | thành    |                                                      |
 |    | phần     | \- ListVariation: Danh sách các kiểu sản phẩm, lưu   |
-|    |          | dưới dạng List\<VariationData>                       |
+|    |          | dưới dạng List\<VariationData\>                      |
 |    |          |                                                      |
 |    |          | \- CombineData: Danh sách cách kết hợp của các kiểu  |
-|    |          | sản phẩm, lưu dưới dạng List\<CombineData>           |
+|    |          | sản phẩm, lưu dưới dạng List\<CombineData\>          |
 +----+----------+------------------------------------------------------+
 | 3  | Các mối  | Mối quan hệ 1..1: Product, CombineData               |
 |    | quan hệ  |                                                      |
@@ -3223,7 +3223,7 @@ Bảng .: Mô tả bảng CombineData
 | 2  | Các thành  | \- ID: Mã định danh lưu dưới dạng String           |
 |    | phần       |                                                    |
 |    |            | \- VariationData: Kiểu Variation, lưu trữ dưới     |
-|    |            | dạng List\<VariationData>                          |
+|    |            | dạng List\<VariationData\>                         |
 |    |            |                                                    |
 |    |            | \- Price: Lưu trữ giá của sản phẩm, lưu dưới dạng  |
 |    |            | NUMERIC                                            |
