@@ -528,392 +528,557 @@ thể CRUD mã giảm giá.
 
 Bảng .: Đặc tả Use Case xem sản phẩm
 
-+----+------------+----------------------------------------------------+
-| S  | Tên        | Xem sản phẩm                                       |
-| TT | UseCase    |                                                    |
-+====+============+====================================================+
-| 1  | Mô tả      | Khách hàng sẽ có khả năng các sản phẩm ở màn hình  |
-|    |            | chính của giao diện, các sản phẩm này sẽ được hiện |
-|    |            | dựa trên các danh mục khác nhau như nội thất...    |
-+----+------------+----------------------------------------------------+
-| 2  | Tác nhân   | Người bán hàng, Người mua hàng, Khách chưa đăng    |
-|    |            | nhập                                               |
-+----+------------+----------------------------------------------------+
-| 3  | Mức độ ưu  | Bắt buộc có                                        |
-|    | tiên       |                                                    |
-+----+------------+----------------------------------------------------+
-| 4  | Điều kiện  | Khi người dùng muốn xem thông tin sản phẩm và nhấn |
-|    | kích hoạt  | vào một sản phẩm nhất định                         |
-+----+------------+----------------------------------------------------+
-| 5  | Điều kiện  | Thiết bị của người dùng đang kết nối internet      |
-|    | cần        |                                                    |
-|    |            | Người dùng đã mở app                               |
-+----+------------+----------------------------------------------------+
-| 6  | Những thứ  | Thông tin sản phẩm được hiển thị                   |
-|    | xuất hiện  |                                                    |
-|    | sau        |                                                    |
-+----+------------+----------------------------------------------------+
-| 7  | Luồng sự   | 1\. Người dùng mở app, app sẽ hiển thị trang Trang |
-|    | kiện chính | chủ với các sản phẩm được hiển thị                 |
-|    |            |                                                    |
-|    |            | 2\. Người dùng nhấn vào một sản phẩm               |
-|    |            |                                                    |
-|    |            | 3\. Hệ thống xác thực mã sản phẩm và bắt đầu tìm   |
-|    |            | kiếm trên cơ sở dữ liệu                            |
-|    |            |                                                    |
-|    |            | 4\. Hệ thống trả dữ liệu về và hiển thị            |
-+----+------------+----------------------------------------------------+
-| 8  | Luồng sự   | 2a. Người dùng nhấn vào nút tìm kiếm               |
-|    | kiện thay  |                                                    |
-|    | thế        | *Use Case tiếp tục Use Case tìm kiếm sản phẩm*     |
-|    |            |                                                    |
-|    |            | 2b. Người dùng nhấn mục xem sản phẩm khuyến nghị   |
-|    |            |                                                    |
-|    |            | *Use Case tiếp tục Use Case xem sản phẩm khuyến    |
-|    |            | nghị*                                              |
-+----+------------+----------------------------------------------------+
-| 9  | Luồng      | 3c. Hệ thống xác thực sản phẩm không tồn tại       |
-|    | ngoại lệ   |                                                    |
-|    |            | 3c1. Hệ thống trả về thông báo lỗi                 |
-|    |            |                                                    |
-|    |            | 3d. Hệ thống bị lỗi                                |
-|    |            |                                                    |
-|    |            | 3d1. Hệ thống trả về thông báo lỗi                 |
-+----+------------+----------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 18%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Xem sản phẩm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Khách hàng sẽ có khả năng các sản phẩm ở màn hình chính của giao
+diện, các sản phẩm này sẽ được hiện dựa trên các danh mục khác nhau như
+nội thất…</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng, Người mua hàng, Khách chưa đăng nhập</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người dùng muốn xem thông tin sản phẩm và nhấn vào một sản phẩm
+nhất định</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người dùng đang kết nối internet</p>
+<p>Người dùng đã mở app</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Thông tin sản phẩm được hiển thị</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người dùng mở app, app sẽ hiển thị trang Trang chủ với các sản
+phẩm được hiển thị</p>
+<p>2. Người dùng nhấn vào một sản phẩm</p>
+<p>3. Hệ thống xác thực mã sản phẩm và bắt đầu tìm kiếm trên cơ sở dữ
+liệu</p>
+<p>4. Hệ thống trả dữ liệu về và hiển thị</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>2a. Người dùng nhấn vào nút tìm kiếm</p>
+<p><em>Use Case tiếp tục Use Case tìm kiếm sản phẩm</em></p>
+<p>2b. Người dùng nhấn mục xem sản phẩm khuyến nghị</p>
+<p><em>Use Case tiếp tục Use Case xem sản phẩm khuyến nghị</em></p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>3c. Hệ thống xác thực sản phẩm không tồn tại</p>
+<p>3c1. Hệ thống trả về thông báo lỗi</p>
+<p>3d. Hệ thống bị lỗi</p>
+<p>3d1. Hệ thống trả về thông báo lỗi</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Tìm kiếm sản phẩm:
 
 Bảng .: Đặc tả Use Case tìm kiếm sản phẩm
 
-+----+----------------+-----------------------------------------------+
-| S  | Tên UseCase    | Tìm kiếm sản phẩm                             |
-| TT |                |                                               |
-+====+================+===============================================+
-| 1  | Mô tả          | Người dùng có thể tìm kiếm sản phẩm để xác    |
-|    |                | định sản phẩm mình muốn                       |
-+----+----------------+-----------------------------------------------+
-| 2  | Tác nhân       | Người bán hàng, Người mua hàng, Khách chưa    |
-|    |                | đăng nhập                                     |
-+----+----------------+-----------------------------------------------+
-| 3  | Mức độ ưu tiên | Bắt buộc có                                   |
-+----+----------------+-----------------------------------------------+
-| 4  | Điều kiện kích | Khi người dùng muốn tìm kiếm thông tin        |
-|    | hoạt           |                                               |
-+----+----------------+-----------------------------------------------+
-| 5  | Điều kiện cần  | Thiết bị của người dùng đang kết nối internet |
-|    |                |                                               |
-|    |                | Người dùng đã mở app                          |
-+----+----------------+-----------------------------------------------+
-| 6  | Những thứ xuất | Danh sách sản phẩm có liên quan được hiển thị |
-|    | hiện sau       |                                               |
-+----+----------------+-----------------------------------------------+
-| 7  | Luồng sự kiện  | 1\. Người dùng nhấn vào nút tìm kiếm          |
-|    | chính          |                                               |
-|    |                | 2\. Người dùng nhấn vào dữ liệu là tên của    |
-|    |                | sản phẩm trên trường nhập dữ liệu             |
-|    |                |                                               |
-|    |                | 3\. Hệ thống sử dụng dữ liệu tìm kiếm trên cơ |
-|    |                | sở dữ liệu                                    |
-|    |                |                                               |
-|    |                | 4\. Hệ thống trả về danh sách kết quả và hiển |
-|    |                | thị                                           |
-+----+----------------+-----------------------------------------------+
-| 8  | Luồng sự kiện  | 2a. Người dùng nhấn vào nút tìm kiếm và nhấn  |
-|    | thay thế       | vào biểu tượng cái míc                        |
-|    |                |                                               |
-|    |                | *Use Case tiếp tục Use Case tìm kiếm sản phẩm |
-|    |                | bằng giọng nói*                               |
-|    |                |                                               |
-|    |                | 2b. Người dùng nhấn vào nút tìm kiếm và nhấn  |
-|    |                | vào biểu tượng máy ảnh                        |
-|    |                |                                               |
-|    |                | *Use Case tiếp tục Use Case tìm kiếm sản phẩm |
-|    |                | bằng hình ảnh*                                |
-+----+----------------+-----------------------------------------------+
-| 9  | Luồng ngoại lệ | 3c. Hệ thống không tìm kiếm được bất cứ sản   |
-|    |                | phẩm nào có nội dung tương tự                 |
-|    |                |                                               |
-|    |                | 3c1. Hệ thống trả về thông báo                |
-|    |                |                                               |
-|    |                | 3d. Hệ thống bị lỗi                           |
-|    |                |                                               |
-|    |                | 3d1. Hệ thống trả về thông báo lỗi            |
-+----+----------------+-----------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 24%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Tìm kiếm sản phẩm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Người dùng có thể tìm kiếm sản phẩm để xác định sản phẩm mình
+muốn</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng, Người mua hàng, Khách chưa đăng nhập</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người dùng muốn tìm kiếm thông tin</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người dùng đang kết nối internet</p>
+<p>Người dùng đã mở app</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Danh sách sản phẩm có liên quan được hiển thị</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người dùng nhấn vào nút tìm kiếm</p>
+<p>2. Người dùng nhấn vào dữ liệu là tên của sản phẩm trên trường nhập
+dữ liệu</p>
+<p>3. Hệ thống sử dụng dữ liệu tìm kiếm trên cơ sở dữ liệu</p>
+<p>4. Hệ thống trả về danh sách kết quả và hiển thị</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>2a. Người dùng nhấn vào nút tìm kiếm và nhấn vào biểu tượng cái
+míc</p>
+<p><em>Use Case tiếp tục Use Case tìm kiếm sản phẩm bằng giọng
+nói</em></p>
+<p>2b. Người dùng nhấn vào nút tìm kiếm và nhấn vào biểu tượng máy
+ảnh</p>
+<p><em>Use Case tiếp tục Use Case tìm kiếm sản phẩm bằng hình
+ảnh</em></p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>3c. Hệ thống không tìm kiếm được bất cứ sản phẩm nào có nội dung
+tương tự</p>
+<p>3c1. Hệ thống trả về thông báo</p>
+<p>3d. Hệ thống bị lỗi</p>
+<p>3d1. Hệ thống trả về thông báo lỗi</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Tìm kiếm sản phẩm bằng giọng nói:
 
 Bảng .: Đặc tả Use Case tìm kiếm sản phẩm bằng giọng nói
 
-+----+----------------+-----------------------------------------------+
-| S  | Tên UseCase    | Tìm kiếm sản phẩm bằng giọng nói              |
-| TT |                |                                               |
-+====+================+===============================================+
-| 1  | Mô tả          | Người dùng có thể tìm kiếm sản phẩm bằng cách |
-|    |                | sử dụng giọng nói                             |
-+----+----------------+-----------------------------------------------+
-| 2  | Tác nhân       | Người bán hàng, Người mua hàng, Khách chưa    |
-|    |                | đăng nhập                                     |
-+----+----------------+-----------------------------------------------+
-| 3  | Mức độ ưu tiên | Không bắt buộc phải có                        |
-+----+----------------+-----------------------------------------------+
-| 4  | Điều kiện kích | Khi người dùng muốn tìm kiếm thông tin bằng   |
-|    | hoạt           | giọng nói                                     |
-+----+----------------+-----------------------------------------------+
-| 5  | Điều kiện cần  | Thiết bị của người dùng đang kết nối internet |
-|    |                |                                               |
-|    |                | Người dùng đã mở app                          |
-+----+----------------+-----------------------------------------------+
-| 6  | Những thứ xuất | Danh sách sản phẩm có liên quan được hiển thị |
-|    | hiện sau       |                                               |
-+----+----------------+-----------------------------------------------+
-| 7  | Luồng sự kiện  | 1\. Người dùng nhấn vào nút tìm kiếm và nhấn  |
-|    | chính          | vào biểu tượng cái míc                        |
-|    |                |                                               |
-|    |                | 2\. Người dùng nhập vào dữ liệu là giọng nói  |
-|    |                |                                               |
-|    |                | 3\. Hệ thống xác minh dữ liệu giọng nói, sau  |
-|    |                | đó tìm kiếm nó trên cơ sở dữ liệu             |
-|    |                |                                               |
-|    |                | 4\. Hệ thống trả về danh sách kết quả và hiển |
-|    |                | thị                                           |
-+----+----------------+-----------------------------------------------+
-| 8  | Luồng sự kiện  | 1a. Người dùng nhấn vào nút tìm kiếm và nhấn  |
-|    | thay thế       | vào biểu tượng máy ảnh                        |
-|    |                |                                               |
-|    |                | *Use case sẽ tiếp tục Use case tìm kiếm hình  |
-|    |                | ảnh bằng sản phẩm*                            |
-+----+----------------+-----------------------------------------------+
-| 9  | Luồng ngoại lệ | 3b. Hệ thống không tìm kiếm được bất cứ sản   |
-|    |                | phẩm nào có nội dung tương tự                 |
-|    |                |                                               |
-|    |                | 3b1. Hệ thống trả về thông báo lỗi            |
-|    |                |                                               |
-|    |                | 3c. Hệ thống bị lỗi                           |
-|    |                |                                               |
-|    |                | 4c1. Hệ thống trả về thông báo lỗi            |
-+----+----------------+-----------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 24%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Tìm kiếm sản phẩm bằng giọng nói</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Người dùng có thể tìm kiếm sản phẩm bằng cách sử dụng giọng nói</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng, Người mua hàng, Khách chưa đăng nhập</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Không bắt buộc phải có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người dùng muốn tìm kiếm thông tin bằng giọng nói</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người dùng đang kết nối internet</p>
+<p>Người dùng đã mở app</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Danh sách sản phẩm có liên quan được hiển thị</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người dùng nhấn vào nút tìm kiếm và nhấn vào biểu tượng cái
+míc</p>
+<p>2. Người dùng nhập vào dữ liệu là giọng nói</p>
+<p>3. Hệ thống xác minh dữ liệu giọng nói, sau đó tìm kiếm nó trên cơ sở
+dữ liệu</p>
+<p>4. Hệ thống trả về danh sách kết quả và hiển thị</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>1a. Người dùng nhấn vào nút tìm kiếm và nhấn vào biểu tượng máy
+ảnh</p>
+<p><em>Use case sẽ tiếp tục Use case tìm kiếm hình ảnh bằng sản
+phẩm</em></p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>3b. Hệ thống không tìm kiếm được bất cứ sản phẩm nào có nội dung
+tương tự</p>
+<p>3b1. Hệ thống trả về thông báo lỗi</p>
+<p>3c. Hệ thống bị lỗi</p>
+<p>4c1. Hệ thống trả về thông báo lỗi</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Tìm kiếm sản phẩm bằng hình ảnh:
 
 Bảng .: Đặc tả Use Case tìm kiếm sản phẩm bằng hình ảnh
 
-+----+---------------+-------------------------------------------------+
-| S  | Tên UseCase   | Tìm kiếm sản phẩm bằng hình ảnh                 |
-| TT |               |                                                 |
-+====+===============+=================================================+
-| 1  | Mô tả         | Người dùng có thể tìm kiếm sản phẩm bằng cách   |
-|    |               | hình ảnh để xác định sản phẩm mình muốn         |
-+----+---------------+-------------------------------------------------+
-| 2  | Tác nhân      | Người bán hàng, Người mua hàng, Khách chưa đăng |
-|    |               | nhập                                            |
-+----+---------------+-------------------------------------------------+
-| 3  | Mức độ ưu     | Không bắt buộc phải có                          |
-|    | tiên          |                                                 |
-+----+---------------+-------------------------------------------------+
-| 4  | Điều kiện     | Khi người dùng muốn tìm kiếm thông tin bằng     |
-|    | kích hoạt     | hình ảnh                                        |
-+----+---------------+-------------------------------------------------+
-| 5  | Điều kiện cần | Thiết bị của người dùng đang kết nối internet   |
-|    |               |                                                 |
-|    |               | Người dùng đã mở app                            |
-+----+---------------+-------------------------------------------------+
-| 6  | Những thứ     | Thông tin sản phẩm được hiển thị                |
-|    | xuất hiện sau |                                                 |
-+----+---------------+-------------------------------------------------+
-| 7  | Luồng sự kiện | 1\. Người dùng nhấn vào nút tìm kiếm và nhấn    |
-|    | chính         | vào biểu tượng máy ảnh                          |
-|    |               |                                                 |
-|    |               | 2\. Người dùng nhập vào dữ liệu là hình ảnh     |
-|    |               |                                                 |
-|    |               | 3\. Hệ thống xác định đối tượng tìm kiếm của    |
-|    |               | hình ảnh và tìm kiếm nó trên dữ cơ sở dữ liệu   |
-|    |               |                                                 |
-|    |               | 4\. Hệ thống trả về danh sách kết quả và hiển   |
-|    |               | thị                                             |
-+----+---------------+-------------------------------------------------+
-| 8  | Luồng sự kiện | 2a. Người dùng chọn mục duyệt ảnh trong thư     |
-|    | thay thế      | viện                                            |
-|    |               |                                                 |
-|    |               | 2a1. Hệ thống sẽ mở ứng dụng duyệt ảnh          |
-|    |               |                                                 |
-|    |               | 3a2. Người dùng lựa chọn hình ảnh               |
-|    |               |                                                 |
-|    |               | *Use Case tiếp tục bước 3*                      |
-|    |               |                                                 |
-|    |               | 2b. Người dùng chọn mục chụp ảnh                |
-|    |               |                                                 |
-|    |               | 2b1. Hệ thống sẽ mở ứng dụng chụp ảnh           |
-|    |               |                                                 |
-|    |               | 2b2. Người dùng chụp đối tượng họ muốn tìm kiếm |
-|    |               |                                                 |
-|    |               | *Use Case tiếp tục bước 3*                      |
-|    |               |                                                 |
-|    |               | 1c. Người dùng nhấn vào biểu tượng cái míc      |
-|    |               |                                                 |
-|    |               | Use Case tiếp tục Use Case tìm kiếm sản phẩm    |
-|    |               | bằng giọng nói                                  |
-+----+---------------+-------------------------------------------------+
-| 9  | Luồng ngoại   | 2c. Dữ liệu hình ảnh có kích thước quá lớn      |
-|    | lệ            |                                                 |
-|    |               | 4c. Hệ thống hiển thị thông báo lỗi             |
-|    |               |                                                 |
-|    |               | 2d. Dữ liệu hình ảnh lựa chọn có định dạng      |
-|    |               | không hợp lệ                                    |
-|    |               |                                                 |
-|    |               | 4d. Hệ thống trả về thông báo lỗi               |
-|    |               |                                                 |
-|    |               | 3e. Hệ thống không xác định được đối tượng mà   |
-|    |               | người dùng muốn tìm kiếm                        |
-|    |               |                                                 |
-|    |               | 4e. Hệ thống trả về thông báo lỗi               |
-+----+---------------+-------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Tìm kiếm sản phẩm bằng hình ảnh</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Người dùng có thể tìm kiếm sản phẩm bằng cách hình ảnh để xác định
+sản phẩm mình muốn</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng, Người mua hàng, Khách chưa đăng nhập</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Không bắt buộc phải có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người dùng muốn tìm kiếm thông tin bằng hình ảnh</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người dùng đang kết nối internet</p>
+<p>Người dùng đã mở app</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Thông tin sản phẩm được hiển thị</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người dùng nhấn vào nút tìm kiếm và nhấn vào biểu tượng máy
+ảnh</p>
+<p>2. Người dùng nhập vào dữ liệu là hình ảnh</p>
+<p>3. Hệ thống xác định đối tượng tìm kiếm của hình ảnh và tìm kiếm nó
+trên dữ cơ sở dữ liệu</p>
+<p>4. Hệ thống trả về danh sách kết quả và hiển thị</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>2a. Người dùng chọn mục duyệt ảnh trong thư viện</p>
+<p>2a1. Hệ thống sẽ mở ứng dụng duyệt ảnh</p>
+<p>3a2. Người dùng lựa chọn hình ảnh</p>
+<p><em>Use Case tiếp tục bước 3</em></p>
+<p>2b. Người dùng chọn mục chụp ảnh</p>
+<p>2b1. Hệ thống sẽ mở ứng dụng chụp ảnh</p>
+<p>2b2. Người dùng chụp đối tượng họ muốn tìm kiếm</p>
+<p><em>Use Case tiếp tục bước 3</em></p>
+<p>1c. Người dùng nhấn vào biểu tượng cái míc</p>
+<p>Use Case tiếp tục Use Case tìm kiếm sản phẩm bằng giọng nói</p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>2c. Dữ liệu hình ảnh có kích thước quá lớn</p>
+<p>4c. Hệ thống hiển thị thông báo lỗi</p>
+<p>2d. Dữ liệu hình ảnh lựa chọn có định dạng không hợp lệ</p>
+<p>4d. Hệ thống trả về thông báo lỗi</p>
+<p>3e. Hệ thống không xác định được đối tượng mà người dùng muốn tìm
+kiếm</p>
+<p>4e. Hệ thống trả về thông báo lỗi</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Xem sản phẩm khuyến nghị:
 
 Bảng .: Đặc tả Use Case xem sản phẩm khuyến nghị
 
-+----+------------------+----------------------------------------------+
-| S  | Tên UseCase      | Xem sản phẩm khuyến nghị                     |
-| TT |                  |                                              |
-+====+==================+==============================================+
-| 1  | Mô tả            | Người dùng có thể xem các sản phẩm khuyến    |
-|    |                  | nghị của hệ thống                            |
-+----+------------------+----------------------------------------------+
-| 2  | Tác nhân         | Người bán hàng, Người mua hàng               |
-+----+------------------+----------------------------------------------+
-| 3  | Mức độ ưu tiên   | Không bắt buộc phải có                       |
-+----+------------------+----------------------------------------------+
-| 4  | Điều kiện kích   | Khi người dùng nhấn vào mục xem các sản phẩm |
-|    | hoạt             | được khuyến nghị                             |
-+----+------------------+----------------------------------------------+
-| 5  | Điều kiện cần    | Thiết bị của người dùng đang kết nối         |
-|    |                  | internet                                     |
-|    |                  |                                              |
-|    |                  | Người dùng đã mở app                         |
-|    |                  |                                              |
-|    |                  | Người dùng đã đăng nhập                      |
-+----+------------------+----------------------------------------------+
-| 6  | Những thứ xuất   | Danh sách các sản phẩm được hiển thị         |
-|    | hiện sau         |                                              |
-+----+------------------+----------------------------------------------+
-| 7  | Luồng sự kiện    | 1\. Người dùng nhấn vào nút "Xem sản phẩm    |
-|    | chính            | khuyến nghị"                                 |
-|    |                  |                                              |
-|    |                  | 2\. Hệ thống xác định các đối tượng khuyến   |
-|    |                  | nghị và trả về                               |
-|    |                  |                                              |
-|    |                  | 3\. Hệ thống trả về danh sách sản phẩm       |
-+----+------------------+----------------------------------------------+
-| 8  | Luồng sự kiện    | Không                                        |
-|    | thay thế         |                                              |
-+----+------------------+----------------------------------------------+
-| 9  | Luồng ngoại lệ   | 1a. Người dùng chưa đăng nhập                |
-|    |                  |                                              |
-|    |                  | 3a. Hiển thị thông báo                       |
-+----+------------------+----------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 26%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Xem sản phẩm khuyến nghị</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Người dùng có thể xem các sản phẩm khuyến nghị của hệ thống</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng, Người mua hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Không bắt buộc phải có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người dùng nhấn vào mục xem các sản phẩm được khuyến nghị</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người dùng đang kết nối internet</p>
+<p>Người dùng đã mở app</p>
+<p>Người dùng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Danh sách các sản phẩm được hiển thị</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người dùng nhấn vào nút “Xem sản phẩm khuyến nghị”</p>
+<p>2. Hệ thống xác định các đối tượng khuyến nghị và trả về</p>
+<p>3. Hệ thống trả về danh sách sản phẩm</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td>Không</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>1a. Người dùng chưa đăng nhập</p>
+<p>3a. Hiển thị thông báo</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Thêm vào sản phẩm ưu thích:
 
 Bảng .: Đặc tả Use Case thêm vào sản phẩm ưu thích
 
-+----+---------------+-------------------------------------------------+
-| S  | Tên UseCase   | Thêm vào sản phẩm ưu thích                      |
-| TT |               |                                                 |
-+====+===============+=================================================+
-| 1  | Mô tả         | Là người dùng, tôi muốn mua thêm sản phẩm vào   |
-|    |               | nhóm các sản phẩm ưu thích của bản thân         |
-+----+---------------+-------------------------------------------------+
-| 2  | Tác nhân      | Người bán hàng, Người mua hàng                  |
-+----+---------------+-------------------------------------------------+
-| 3  | Mức độ ưu     | Không bắt buộc phải có                          |
-|    | tiên          |                                                 |
-+----+---------------+-------------------------------------------------+
-| 4  | Điều kiện     | Khi người dùng nhấn vào biểu tượng trái tim tại |
-|    | kích hoạt     | giao diện sản phẩm                              |
-+----+---------------+-------------------------------------------------+
-| 5  | Điều kiện cần | Thiết bị của người dùng đang kết nối internet   |
-|    |               |                                                 |
-|    |               | Người dùng đã mở app                            |
-|    |               |                                                 |
-|    |               | Người dùng đã đăng nhập                         |
-+----+---------------+-------------------------------------------------+
-| 6  | Những thứ     | Sản phẩm đã xuất hiện vào phần ưu thích         |
-|    | xuất hiện sau |                                                 |
-+----+---------------+-------------------------------------------------+
-| 7  | Luồng sự kiện | 1\. Người dùng truy cập ứng dụng                |
-|    | chính         |                                                 |
-|    |               | 2\. Người dùng chọn vào biểu tượng cái giỏ tại  |
-|    |               | sản phẩm                                        |
-|    |               |                                                 |
-|    |               | 3\. Hệ thống kiểm tra thông tin                 |
-|    |               |                                                 |
-|    |               | 4\. Hệ thống thêm id vào mục ưu thích           |
-+----+---------------+-------------------------------------------------+
-| 8  | Luồng sự kiện | Không                                           |
-|    | thay thế      |                                                 |
-+----+---------------+-------------------------------------------------+
-| 9  | Luồng ngoại   | Không                                           |
-|    | lệ            |                                                 |
-+----+---------------+-------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Thêm vào sản phẩm ưu thích</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người dùng, tôi muốn mua thêm sản phẩm vào nhóm các sản phẩm ưu
+thích của bản thân</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng, Người mua hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Không bắt buộc phải có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người dùng nhấn vào biểu tượng trái tim tại giao diện sản
+phẩm</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người dùng đang kết nối internet</p>
+<p>Người dùng đã mở app</p>
+<p>Người dùng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Sản phẩm đã xuất hiện vào phần ưu thích</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người dùng truy cập ứng dụng</p>
+<p>2. Người dùng chọn vào biểu tượng cái giỏ tại sản phẩm</p>
+<p>3. Hệ thống kiểm tra thông tin</p>
+<p>4. Hệ thống thêm id vào mục ưu thích</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td>Không</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td>Không</td>
+</tr>
+</tbody>
+</table>
 
 ### Xác thực người dùng
 
 Bảng .: Đặc tả Use Case xác thực người dùng
 
-+----+---------------+-------------------------------------------------+
-| S  | Tên UseCase   | Xác thực người dùng                             |
-| TT |               |                                                 |
-+====+===============+=================================================+
-| 1  | Mô tả         | Là người dùng, tôi muốn đăng nhập vào ứng dụng  |
-+----+---------------+-------------------------------------------------+
-| 2  | Tác nhân      | Người bán hàng, Người mua hàng, Khách chưa đăng |
-|    |               | nhập, Dịch vụ đăng nhập                         |
-+----+---------------+-------------------------------------------------+
-| 3  | Mức độ ưu     | Cần phải có                                     |
-|    | tiên          |                                                 |
-+----+---------------+-------------------------------------------------+
-| 4  | Điều kiện     | Khi người dùng xem các sản phẩm được khuyến     |
-|    | kích hoạt     | nghị                                            |
-+----+---------------+-------------------------------------------------+
-| 5  | Điều kiện cần | Thiết bị của người dùng đang kết nối internet   |
-|    |               |                                                 |
-|    |               | Người dùng đã mở app                            |
-|    |               |                                                 |
-|    |               | Tài khoản của người dùng đã được tạo sẵn        |
-+----+---------------+-------------------------------------------------+
-| 6  | Những thứ     | Người dùng đăng nhập thành công                 |
-|    | xuất hiện sau |                                                 |
-+----+---------------+-------------------------------------------------+
-| 7  | Luồng sự kiện | 1\. Người dùng truy cập ứng dụng                |
-|    | chính         |                                                 |
-|    |               | 2\. Người dùng chọn phương thức đăng nhập bằng  |
-|    |               | tài khoản ứng dụng                              |
-|    |               |                                                 |
-|    |               | 3\. Người dùng nhập thông tin tài khoản và nhấn |
-|    |               | đăng nhập                                       |
-|    |               |                                                 |
-|    |               | 4\. Hệ thống xác thực thông tin đăng nhập thành |
-|    |               | công và cho phép người dùng truy cập ứng dụng   |
-+----+---------------+-------------------------------------------------+
-| 8  | Luồng sự kiện | 2a. Người dùng chọn phương thức đăng nhập bằng  |
-|    | thay thế      | tài khoản Gmail                                 |
-|    |               |                                                 |
-|    |               | 2a1. Hệ thống chuyển sang màn hình đăng nhập    |
-|    |               | của Google                                      |
-|    |               |                                                 |
-|    |               | 2a2. Người dùng nhập tài khoản Google và chọn   |
-|    |               | lệnh đăng nhập                                  |
-|    |               |                                                 |
-|    |               | 2a3. Google xác thực thông tin đăng nhập thành  |
-|    |               | công và cho phép người dùng truy cập ứng dụng   |
-+----+---------------+-------------------------------------------------+
-| 9  | Luồng ngoại   | 4b. Hệ thống xác thực thông tin đăng nhập không |
-|    | lệ            | thành công và hiển thị thông báo.               |
-|    |               |                                                 |
-|    |               | 4b1. Người dùng chọn lệnh hủy đăng nhập.        |
-|    |               |                                                 |
-|    |               | Use Case dừng lại.                              |
-+----+---------------+-------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 22%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Xác thực người dùng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người dùng, tôi muốn đăng nhập vào ứng dụng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng, Người mua hàng, Khách chưa đăng nhập, Dịch vụ đăng
+nhập</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Cần phải có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người dùng xem các sản phẩm được khuyến nghị</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người dùng đang kết nối internet</p>
+<p>Người dùng đã mở app</p>
+<p>Tài khoản của người dùng đã được tạo sẵn</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Người dùng đăng nhập thành công</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người dùng truy cập ứng dụng</p>
+<p>2. Người dùng chọn phương thức đăng nhập bằng tài khoản ứng dụng</p>
+<p>3. Người dùng nhập thông tin tài khoản và nhấn đăng nhập</p>
+<p>4. Hệ thống xác thực thông tin đăng nhập thành công và cho phép người
+dùng truy cập ứng dụng</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>2a. Người dùng chọn phương thức đăng nhập bằng tài khoản
+Gmail</p>
+<p>2a1. Hệ thống chuyển sang màn hình đăng nhập của Google</p>
+<p>2a2. Người dùng nhập tài khoản Google và chọn lệnh đăng nhập</p>
+<p>2a3. Google xác thực thông tin đăng nhập thành công và cho phép người
+dùng truy cập ứng dụng</p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>4b. Hệ thống xác thực thông tin đăng nhập không thành công và
+hiển thị thông báo.</p>
+<p>4b1. Người dùng chọn lệnh hủy đăng nhập.</p>
+<p>Use Case dừng lại.</p></td>
+</tr>
+</tbody>
+</table>
 
 ### Nhóm UseCase liên quan đến mua hàng
 
@@ -921,216 +1086,307 @@ Bảng .: Đặc tả Use Case xác thực người dùng
 
 Bảng .: Đặc tả Use Case thêm vào giỏ
 
-+----+---------------+------------------------------------------------+
-| S  | Tên UseCase   | Thêm vào giỏ                                   |
-| TT |               |                                                |
-+====+===============+================================================+
-| 1  | Mô tả         | Là người dùng, tôi muốn mua sản phẩm này và    |
-|    |               | tiếp tục xem các sản phẩm khách                |
-+----+---------------+------------------------------------------------+
-| 2  | Tác nhân      | Người bán hàng, Người mua hàng, Khách chưa     |
-|    |               | đăng nhập, Dịch vụ đăng nhập                   |
-+----+---------------+------------------------------------------------+
-| 3  | Mức độ ưu     | Cần phải có                                    |
-|    | tiên          |                                                |
-+----+---------------+------------------------------------------------+
-| 4  | Điều kiện     | Khi người dùng nhấn vào biểu tượng giỏ hàng    |
-|    | kích hoạt     | tại giao diện sản phẩm                         |
-+----+---------------+------------------------------------------------+
-| 5  | Điều kiện cần | Thiết bị của người dùng đang kết nối internet  |
-|    |               |                                                |
-|    |               | Người dùng đã mở app                           |
-+----+---------------+------------------------------------------------+
-| 6  | Những thứ     | Sản phẩm đã xuất hiện trong giỏ                |
-|    | xuất hiện sau |                                                |
-+----+---------------+------------------------------------------------+
-| 7  | Luồng sự kiện | 1\. Người dùng truy cập ứng dụng               |
-|    | chính         |                                                |
-|    |               | 2\. Người dùng chọn vào biểu tượng cái giỏ tại |
-|    |               | màn hình sản phẩm                              |
-|    |               |                                                |
-|    |               | 3\. Hệ thống kiểm tra thông tin                |
-|    |               |                                                |
-|    |               | 4\. Hệ thống thêm id vào mục giỏ hàng          |
-+----+---------------+------------------------------------------------+
-| 8  | Luồng sự kiện | 2a. Người dùng nhấn vào mục số lượng để lựa    |
-|    | thay thế      | chọn số lượng sản phẩm muốn đặt hàng           |
-|    |               |                                                |
-|    |               | 2a1. Hệ thống sẽ kiểm tra thông tin            |
-+----+---------------+------------------------------------------------+
-| 9  | Luồng ngoại   | 3b. Hệ thống xác định số lượng sản phẩm của    |
-|    | lệ            | shop không đủ để đáp ứng phiên đặt hàng.       |
-|    |               |                                                |
-|    |               | 3b1. Hệ thống hiển thị thông báo lỗi           |
-+----+---------------+------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Thêm vào giỏ</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người dùng, tôi muốn mua sản phẩm này và tiếp tục xem các sản
+phẩm khách</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng, Người mua hàng, Khách chưa đăng nhập, Dịch vụ đăng
+nhập</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Cần phải có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người dùng nhấn vào biểu tượng giỏ hàng tại giao diện sản
+phẩm</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người dùng đang kết nối internet</p>
+<p>Người dùng đã mở app</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Sản phẩm đã xuất hiện trong giỏ</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người dùng truy cập ứng dụng</p>
+<p>2. Người dùng chọn vào biểu tượng cái giỏ tại màn hình sản phẩm</p>
+<p>3. Hệ thống kiểm tra thông tin</p>
+<p>4. Hệ thống thêm id vào mục giỏ hàng</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>2a. Người dùng nhấn vào mục số lượng để lựa chọn số lượng sản
+phẩm muốn đặt hàng</p>
+<p>2a1. Hệ thống sẽ kiểm tra thông tin</p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>3b. Hệ thống xác định số lượng sản phẩm của shop không đủ để đáp
+ứng phiên đặt hàng.</p>
+<p>3b1. Hệ thống hiển thị thông báo lỗi</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Cập nhật giỏ hàng:
 
 Bảng .: Đặc tả Use Case cập nhật giỏ hàng
 
-+----+-------------------+---------------------------------------------+
-| S  | Tên UseCase       | Cập nhật giỏ hàng                           |
-| TT |                   |                                             |
-+====+===================+=============================================+
-| 1  | Mô tả             | Là người dùng, tôi muốn mua cập nhật giỏ    |
-|    |                   | hàng của bản thân                           |
-+----+-------------------+---------------------------------------------+
-| 2  | Tác nhân          | Người bán hàng, Người mua hàng              |
-+----+-------------------+---------------------------------------------+
-| 3  | Mức độ ưu tiên    | Bắt buộc có                                 |
-+----+-------------------+---------------------------------------------+
-| 4  | Điều kiện kích    | Khi người dùng nhấn nút làm tươi trên màn   |
-|    | hoạt              | hình cập nhật                               |
-+----+-------------------+---------------------------------------------+
-| 5  | Điều kiện cần     | Thiết bị của người dùng đang kết nối        |
-|    |                   | internet                                    |
-|    |                   |                                             |
-|    |                   | Người dùng đã mở app                        |
-|    |                   |                                             |
-|    |                   | Người dùng đã đăng nhập                     |
-+----+-------------------+---------------------------------------------+
-| 6  | Những thứ xuất    | Danh sách các sản phẩm được cập nhật và     |
-|    | hiện sau          | tính toán lại                               |
-+----+-------------------+---------------------------------------------+
-| 7  | Luồng sự kiện     | 1\. Người dùng truy cập ứng dụng            |
-|    | chính             |                                             |
-|    |                   | 2\. Người dùng chọn vào biểu tượng cái giỏ  |
-|    |                   | tại sản phẩm                                |
-|    |                   |                                             |
-|    |                   | 3\. Người dùng nhấn vào nút làm tươi trên   |
-|    |                   | màn hình                                    |
-|    |                   |                                             |
-|    |                   | 4\. Hệ thống thực hiện kiểm tra thông tin   |
-|    |                   |                                             |
-|    |                   | 5\. Hệ thống tính toán lại các thông tin    |
-|    |                   | trên giỏ                                    |
-+----+-------------------+---------------------------------------------+
-| 8  | Luồng sự kiện     | Không                                       |
-|    | thay thế          |                                             |
-+----+-------------------+---------------------------------------------+
-| 9  | Luồng ngoại lệ    | 4a. Người dùng mất mạng                     |
-|    |                   |                                             |
-|    |                   | 4a1. Hệ thống hiển thị lỗi                  |
-|    |                   |                                             |
-|    |                   | Use Case kết thúc                           |
-+----+-------------------+---------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 27%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Cập nhật giỏ hàng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người dùng, tôi muốn mua cập nhật giỏ hàng của bản thân</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng, Người mua hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người dùng nhấn nút làm tươi trên màn hình cập nhật</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người dùng đang kết nối internet</p>
+<p>Người dùng đã mở app</p>
+<p>Người dùng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Danh sách các sản phẩm được cập nhật và tính toán lại</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người dùng truy cập ứng dụng</p>
+<p>2. Người dùng chọn vào biểu tượng cái giỏ tại sản phẩm</p>
+<p>3. Người dùng nhấn vào nút làm tươi trên màn hình</p>
+<p>4. Hệ thống thực hiện kiểm tra thông tin</p>
+<p>5. Hệ thống tính toán lại các thông tin trên giỏ</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td>Không</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>4a. Người dùng mất mạng</p>
+<p>4a1. Hệ thống hiển thị lỗi</p>
+<p>Use Case kết thúc</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Tính toán thuế:
 
 Bảng .: Đặc tả Use Case tính toán thuế
 
-+----+-------------------+---------------------------------------------+
-| S  | Tên UseCase       | Đặc tả Use Case tính toán thuế              |
-| TT |                   |                                             |
-+====+===================+=============================================+
-| 1  | Mô tả             | Là người dùng, tôi muốn thanh toán và xem   |
-|    |                   | các khoản phí                               |
-+----+-------------------+---------------------------------------------+
-| 2  | Tác nhân          | Người bán hàng, Người mua hàng              |
-+----+-------------------+---------------------------------------------+
-| 3  | Mức độ ưu tiên    | Bắt buộc có                                 |
-+----+-------------------+---------------------------------------------+
-| 4  | Điều kiện kích    | Khi người thực hiện thanh toán              |
-|    | hoạt              |                                             |
-+----+-------------------+---------------------------------------------+
-| 5  | Điều kiện cần     | Thiết bị của người dùng đang kết nối        |
-|    |                   | internet                                    |
-|    |                   |                                             |
-|    |                   | Người dùng đã mở app                        |
-|    |                   |                                             |
-|    |                   | Người dùng đã đăng nhập                     |
-+----+-------------------+---------------------------------------------+
-| 6  | Những thứ xuất    | Dữ liệu các khoản phí được cập nhật         |
-|    | hiện sau          |                                             |
-+----+-------------------+---------------------------------------------+
-| 7  | Luồng sự kiện     | 1\. Người dùng truy cập ứng dụng            |
-|    | chính             |                                             |
-|    |                   | 2\. Người dùng nhấn vào giỏ hàng            |
-|    |                   |                                             |
-|    |                   | 3\. Người dùng nhấn vào thanh toán          |
-|    |                   |                                             |
-|    |                   | 4\. Hệ thống thực hiện tính toán thuế của   |
-|    |                   | các sản phẩm                                |
-|    |                   |                                             |
-|    |                   | 5\. Hệ thống hiển thị dữ liệu là các khoản  |
-|    |                   | phí                                         |
-+----+-------------------+---------------------------------------------+
-| 8  | Luồng sự kiện     | Không                                       |
-|    | thay thế          |                                             |
-+----+-------------------+---------------------------------------------+
-| 9  | Luồng ngoại lệ    | 4a. Người dùng mất mạng                     |
-|    |                   |                                             |
-|    |                   | 4a1. Hệ thống hiển thị lỗi                  |
-|    |                   |                                             |
-|    |                   | Use Case kết thúc                           |
-+----+-------------------+---------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 28%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Đặc tả Use Case tính toán thuế</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người dùng, tôi muốn thanh toán và xem các khoản phí</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng, Người mua hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người thực hiện thanh toán</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người dùng đang kết nối internet</p>
+<p>Người dùng đã mở app</p>
+<p>Người dùng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Dữ liệu các khoản phí được cập nhật</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người dùng truy cập ứng dụng</p>
+<p>2. Người dùng nhấn vào giỏ hàng</p>
+<p>3. Người dùng nhấn vào thanh toán</p>
+<p>4. Hệ thống thực hiện tính toán thuế của các sản phẩm</p>
+<p>5. Hệ thống hiển thị dữ liệu là các khoản phí</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td>Không</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>4a. Người dùng mất mạng</p>
+<p>4a1. Hệ thống hiển thị lỗi</p>
+<p>Use Case kết thúc</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Thực hiện chi trả:
 
 Bảng .: Đặc tả Use Case thực hiện chi trả
 
-+----+------------------+---------------------------------------------+
-| S  | Tên UseCase      | Thực hiện chi trả                           |
-| TT |                  |                                             |
-+====+==================+=============================================+
-| 1  | Mô tả            | Là người dùng, tôi muốn thanh toán          |
-+----+------------------+---------------------------------------------+
-| 2  | Tác nhân         | Người bán hàng, Người mua hàng, Dịch vụ     |
-|    |                  | thanh toán                                  |
-+----+------------------+---------------------------------------------+
-| 3  | Mức độ ưu tiên   | Bắt buộc có                                 |
-+----+------------------+---------------------------------------------+
-| 4  | Điều kiện kích   | Khi người thực hiện thanh toán              |
-|    | hoạt             |                                             |
-+----+------------------+---------------------------------------------+
-| 5  | Điều kiện cần    | Thiết bị của người dùng đang kết nối        |
-|    |                  | internet                                    |
-|    |                  |                                             |
-|    |                  | Người dùng đã mở app                        |
-|    |                  |                                             |
-|    |                  | Người dùng đã đăng nhập                     |
-+----+------------------+---------------------------------------------+
-| 6  | Những thứ xuất   | Giai đoạn thanh toán được hoàn thành        |
-|    | hiện sau         |                                             |
-+----+------------------+---------------------------------------------+
-| 7  | Luồng sự kiện    | 1\. Người dùng truy cập ứng dụng            |
-|    | chính            |                                             |
-|    |                  | 2\. Người dùng nhấn vào giỏ hàng            |
-|    |                  |                                             |
-|    |                  | 3\. Người dùng nhấn vào thanh toán          |
-|    |                  |                                             |
-|    |                  | 4\. Hệ thống thực hiện tính toán thuế của   |
-|    |                  | các sản phẩm                                |
-|    |                  |                                             |
-|    |                  | 5\. Người dùng thực hiện lựa chọn phương    |
-|    |                  | thức thanh toán                             |
-|    |                  |                                             |
-|    |                  | 6\. Người dùng thực hiện thanh toán         |
-|    |                  |                                             |
-|    |                  | 5\. Hệ thống thông báo thành công           |
-+----+------------------+---------------------------------------------+
-| 8  | Luồng sự kiện    | 5a. Người dùng lựa chọn trả khi nhận hàng   |
-|    | thay thế         |                                             |
-|    |                  | *Use Case tiếp tục Use Case thực hiện chi   |
-|    |                  | trả*                                        |
-|    |                  |                                             |
-|    |                  | 5b. Người dùng lựa chọn phương thức thanh   |
-|    |                  | toán của bên thứ 3                          |
-|    |                  |                                             |
-|    |                  | 5b1. Giao diện thanh toán được hiển thị     |
-|    |                  |                                             |
-|    |                  | 5b2. Người dùng thực hiện các bước thanh    |
-|    |                  | toán                                        |
-|    |                  |                                             |
-|    |                  | *Use Case tiếp tục Use Case thực hiện chi   |
-|    |                  | trả*                                        |
-+----+------------------+---------------------------------------------+
-| 9  | Luồng ngoại lệ   | 4c. Người dùng mất mạng                     |
-|    |                  |                                             |
-|    |                  | 4c1. Hệ thống hiển thị lỗi                  |
-|    |                  |                                             |
-|    |                  | Use Case kết thúc                           |
-+----+------------------+---------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 27%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Thực hiện chi trả</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người dùng, tôi muốn thanh toán</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng, Người mua hàng, Dịch vụ thanh toán</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người thực hiện thanh toán</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người dùng đang kết nối internet</p>
+<p>Người dùng đã mở app</p>
+<p>Người dùng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Giai đoạn thanh toán được hoàn thành</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người dùng truy cập ứng dụng</p>
+<p>2. Người dùng nhấn vào giỏ hàng</p>
+<p>3. Người dùng nhấn vào thanh toán</p>
+<p>4. Hệ thống thực hiện tính toán thuế của các sản phẩm</p>
+<p>5. Người dùng thực hiện lựa chọn phương thức thanh toán</p>
+<p>6. Người dùng thực hiện thanh toán</p>
+<p>5. Hệ thống thông báo thành công</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>5a. Người dùng lựa chọn trả khi nhận hàng</p>
+<p><em>Use Case tiếp tục Use Case thực hiện chi trả</em></p>
+<p>5b. Người dùng lựa chọn phương thức thanh toán của bên thứ 3</p>
+<p>5b1. Giao diện thanh toán được hiển thị</p>
+<p>5b2. Người dùng thực hiện các bước thanh toán</p>
+<p><em>Use Case tiếp tục Use Case thực hiện chi trả</em></p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>4c. Người dùng mất mạng</p>
+<p>4c1. Hệ thống hiển thị lỗi</p>
+<p>Use Case kết thúc</p></td>
+</tr>
+</tbody>
+</table>
 
 ### Nhóm UseCase quản lý
 
@@ -1138,248 +1394,320 @@ Bảng .: Đặc tả Use Case thực hiện chi trả
 
 Bảng .: Đặc tả Use Case quản lý cửa hàng
 
-+----+------------------+----------------------------------------------+
-| S  | Tên UseCase      | Quản lý cửa hàng                             |
-| TT |                  |                                              |
-+====+==================+==============================================+
-| 1  | Mô tả            | Là người bán hàng, tôi muốn thực hiện quản   |
-|    |                  | lý cửa hàng của mình                         |
-+----+------------------+----------------------------------------------+
-| 2  | Tác nhân         | Người bán hàng                               |
-+----+------------------+----------------------------------------------+
-| 3  | Mức độ ưu tiên   | Bắt buộc có                                  |
-+----+------------------+----------------------------------------------+
-| 4  | Điều kiện kích   | Khi người bán hàng truy cập trang web cho    |
-|    | hoạt             | người bán hàng                               |
-+----+------------------+----------------------------------------------+
-| 5  | Điều kiện cần    | Thiết bị của người bán hàng đang kết nối     |
-|    |                  | internet                                     |
-|    |                  |                                              |
-|    |                  | Người bán hàng đã truy cập web               |
-|    |                  |                                              |
-|    |                  | Người bán hàng đã đăng nhập                  |
-+----+------------------+----------------------------------------------+
-| 6  | Những thứ xuất   | Thông tin quản lý và các chức năng được hiển |
-|    | hiện sau         | thị                                          |
-+----+------------------+----------------------------------------------+
-| 7  | Luồng sự kiện    | 1\. Người bán hàng truy cập ứng dụng         |
-|    | chính            |                                              |
-|    |                  | 2\. Người bán hàng nhấn vào chức năng quản   |
-|    |                  | lý cửa hàng                                  |
-|    |                  |                                              |
-|    |                  | 3\. Hệ thống thực hiện lấy dữ liệu cửa hàng  |
-|    |                  |                                              |
-|    |                  | 4\. Hệ thống hiển thị trang web quản lý      |
-+----+------------------+----------------------------------------------+
-| 8  | Luồng sự kiện    | Không                                        |
-|    | thay thế         |                                              |
-+----+------------------+----------------------------------------------+
-| 9  | Luồng ngoại lệ   | 4a. Người bán hàng mất mạng                  |
-|    |                  |                                              |
-|    |                  | 4a1. Hệ thống hiển thị lỗi                   |
-|    |                  |                                              |
-|    |                  | Use Case kết thúc                            |
-+----+------------------+----------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 26%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Quản lý cửa hàng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người bán hàng, tôi muốn thực hiện quản lý cửa hàng của mình</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người bán hàng truy cập trang web cho người bán hàng</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người bán hàng đang kết nối internet</p>
+<p>Người bán hàng đã truy cập web</p>
+<p>Người bán hàng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Thông tin quản lý và các chức năng được hiển thị</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người bán hàng truy cập ứng dụng</p>
+<p>2. Người bán hàng nhấn vào chức năng quản lý cửa hàng</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu cửa hàng</p>
+<p>4. Hệ thống hiển thị trang web quản lý</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td>Không</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>4a. Người bán hàng mất mạng</p>
+<p>4a1. Hệ thống hiển thị lỗi</p>
+<p>Use Case kết thúc</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Xem thông tin thống kê:
 
 Bảng .: Đặc tả Use Case xem thông tin thống kê
 
-+----+--------------+--------------------------------------------------+
-| S  | Tên UseCase  | Xem thông tin thống kê                           |
-| TT |              |                                                  |
-+====+==============+==================================================+
-| 1  | Mô tả        | Là người bán hàng, tôi muốn xem thông tin thống  |
-|    |              | kê của cửa hàng                                  |
-+----+--------------+--------------------------------------------------+
-| 2  | Tác nhân     | Người bán hàng                                   |
-+----+--------------+--------------------------------------------------+
-| 3  | Mức độ ưu    | Bắt buộc có                                      |
-|    | tiên         |                                                  |
-+----+--------------+--------------------------------------------------+
-| 4  | Điều kiện    | Khi người bán hàng truy cập trang web cho người  |
-|    | kích hoạt    | bán hàng và nhấn vào tính năng xem thông tin     |
-|    |              | thống kê                                         |
-+----+--------------+--------------------------------------------------+
-| 5  | Điều kiện    | Thiết bị của người bán hàng đang kết nối         |
-|    | cần          | internet                                         |
-|    |              |                                                  |
-|    |              | Người bán hàng đã truy cập web                   |
-|    |              |                                                  |
-|    |              | Người bán hàng đã đăng nhập                      |
-+----+--------------+--------------------------------------------------+
-| 6  | Những thứ    | Thông tin thống kê cửa hàng được hiển thị        |
-|    | xuất hiện    |                                                  |
-|    | sau          |                                                  |
-+----+--------------+--------------------------------------------------+
-| 7  | Luồng sự     | 1\. Người bán hàng truy cập ứng dụng             |
-|    | kiện chính   |                                                  |
-|    |              | 2\. Người bán hàng nhấn vào chức năng quản lý    |
-|    |              | cửa hàng                                         |
-|    |              |                                                  |
-|    |              | 3\. Hệ thống thực hiện lấy dữ liệu cửa hàng      |
-|    |              |                                                  |
-|    |              | 4\. Hệ thống hiển thị trang web quản lý          |
-|    |              |                                                  |
-|    |              | 5\. Người bán hàng nhấn chức năng xem thông tin  |
-|    |              | thống kê                                         |
-|    |              |                                                  |
-|    |              | 6\. Hệ thống thực hiện phân tích dữ liệu         |
-|    |              |                                                  |
-|    |              | 7\. Hệ thống hiển thị                            |
-+----+--------------+--------------------------------------------------+
-| 8  | Luồng sự     | 5a. Người bán hàng nhấn chức năng thống kê các   |
-|    | kiện thay    | đơn đặt hàng                                     |
-|    | thế          |                                                  |
-|    |              | *Use Case tiếp tục thực hiện Use Case thống kê   |
-|    |              | đơn đặt hàng*                                    |
-|    |              |                                                  |
-|    |              | 5b. Người bán hàng nhấn chức năng thống kê sản   |
-|    |              | phẩm                                             |
-|    |              |                                                  |
-|    |              | *Use Case tiếp tục thực hiện Use Case thống kê   |
-|    |              | sản phẩm*                                        |
-+----+--------------+--------------------------------------------------+
-| 9  | Luồng ngoại  | 4c. Người dùng mất mạng                          |
-|    | lệ           |                                                  |
-|    |              | 4c1. Hệ thống hiển thị lỗi                       |
-|    |              |                                                  |
-|    |              | Use Case kết thúc                                |
-|    |              |                                                  |
-|    |              | 6d. Dữ liệu lỗi                                  |
-|    |              |                                                  |
-|    |              | 6d1. Hệ thống hiển thị lỗi                       |
-+----+--------------+--------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 21%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Xem thông tin thống kê</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người bán hàng, tôi muốn xem thông tin thống kê của cửa hàng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người bán hàng truy cập trang web cho người bán hàng và nhấn vào
+tính năng xem thông tin thống kê</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người bán hàng đang kết nối internet</p>
+<p>Người bán hàng đã truy cập web</p>
+<p>Người bán hàng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Thông tin thống kê cửa hàng được hiển thị</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người bán hàng truy cập ứng dụng</p>
+<p>2. Người bán hàng nhấn vào chức năng quản lý cửa hàng</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu cửa hàng</p>
+<p>4. Hệ thống hiển thị trang web quản lý</p>
+<p>5. Người bán hàng nhấn chức năng xem thông tin thống kê</p>
+<p>6. Hệ thống thực hiện phân tích dữ liệu</p>
+<p>7. Hệ thống hiển thị</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>5a. Người bán hàng nhấn chức năng thống kê các đơn đặt hàng</p>
+<p><em>Use Case tiếp tục thực hiện Use Case thống kê đơn đặt
+hàng</em></p>
+<p>5b. Người bán hàng nhấn chức năng thống kê sản phẩm</p>
+<p><em>Use Case tiếp tục thực hiện Use Case thống kê sản
+phẩm</em></p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>4c. Người dùng mất mạng</p>
+<p>4c1. Hệ thống hiển thị lỗi</p>
+<p>Use Case kết thúc</p>
+<p>6d. Dữ liệu lỗi</p>
+<p>6d1. Hệ thống hiển thị lỗi</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Thống kê đơn đặt hàng:
 
 Bảng .: Đặc tả Use Case thống kê đơn đặt hàng
 
-+----+-------------+--------------------------------------------------+
-| S  | Tên UseCase | Thống kê đơn đặt hàng                            |
-| TT |             |                                                  |
-+====+=============+==================================================+
-| 1  | Mô tả       | Là người bán hàng, tôi muốn xem thông tin thống  |
-|    |             | đơn đặt hàng                                     |
-+----+-------------+--------------------------------------------------+
-| 2  | Tác nhân    | Người bán hàng                                   |
-+----+-------------+--------------------------------------------------+
-| 3  | Mức độ ưu   | Bắt buộc có                                      |
-|    | tiên        |                                                  |
-+----+-------------+--------------------------------------------------+
-| 4  | Điều kiện   | Khi người bán hàng truy cập trang web cho người  |
-|    | kích hoạt   | bán hàng và nhấn vào tính năng xem thông tin     |
-|    |             | thống kê đơn đặt hàng                            |
-+----+-------------+--------------------------------------------------+
-| 5  | Điều kiện   | Thiết bị của người bán hàng đang kết nối         |
-|    | cần         | internet                                         |
-|    |             |                                                  |
-|    |             | Người bán hàng đã truy cập web                   |
-|    |             |                                                  |
-|    |             | Người bán hàng đã đăng nhập                      |
-+----+-------------+--------------------------------------------------+
-| 6  | Những thứ   | Thông tin thống kê cửa hàng được hiển thị        |
-|    | xuất hiện   |                                                  |
-|    | sau         |                                                  |
-+----+-------------+--------------------------------------------------+
-| 7  | Luồng sự    | 1\. Người bán hàng truy cập ứng dụng             |
-|    | kiện chính  |                                                  |
-|    |             | 2\. Người bán hàng nhấn vào chức năng quản lý    |
-|    |             | cửa hàng                                         |
-|    |             |                                                  |
-|    |             | 3\. Hệ thống thực hiện lấy dữ liệu cửa hàng      |
-|    |             |                                                  |
-|    |             | 4\. Hệ thống hiển thị trang web quản lý          |
-|    |             |                                                  |
-|    |             | 5\. Người bán hàng nhấn vào chức năng xem thông  |
-|    |             | tin thống kê                                     |
-|    |             |                                                  |
-|    |             | 6\. Người bán hàng nhấn vào chức năng xem thông  |
-|    |             | tin thống kê đơn đặt hàng                        |
-|    |             |                                                  |
-|    |             | 7\. Hệ thống thực hiện phân tích dữ liệu         |
-|    |             |                                                  |
-|    |             | 8\. Hệ thống hiển thị                            |
-+----+-------------+--------------------------------------------------+
-| 8  | Luồng sự    | Không                                            |
-|    | kiện thay   |                                                  |
-|    | thế         |                                                  |
-+----+-------------+--------------------------------------------------+
-| 9  | Luồng ngoại | 4c. Người dùng mất mạng                          |
-|    | lệ          |                                                  |
-|    |             | 4c1. Hệ thống hiển thị lỗi                       |
-|    |             |                                                  |
-|    |             | Use Case kết thúc                                |
-|    |             |                                                  |
-|    |             | 7d. Dữ liệu lỗi                                  |
-|    |             |                                                  |
-|    |             | 7d1. Hệ thống hiển thị lỗi                       |
-+----+-------------+--------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 20%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Thống kê đơn đặt hàng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người bán hàng, tôi muốn xem thông tin thống đơn đặt hàng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người bán hàng truy cập trang web cho người bán hàng và nhấn vào
+tính năng xem thông tin thống kê đơn đặt hàng</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người bán hàng đang kết nối internet</p>
+<p>Người bán hàng đã truy cập web</p>
+<p>Người bán hàng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Thông tin thống kê cửa hàng được hiển thị</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người bán hàng truy cập ứng dụng</p>
+<p>2. Người bán hàng nhấn vào chức năng quản lý cửa hàng</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu cửa hàng</p>
+<p>4. Hệ thống hiển thị trang web quản lý</p>
+<p>5. Người bán hàng nhấn vào chức năng xem thông tin thống kê</p>
+<p>6. Người bán hàng nhấn vào chức năng xem thông tin thống kê đơn đặt
+hàng</p>
+<p>7. Hệ thống thực hiện phân tích dữ liệu</p>
+<p>8. Hệ thống hiển thị</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td>Không</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>4c. Người dùng mất mạng</p>
+<p>4c1. Hệ thống hiển thị lỗi</p>
+<p>Use Case kết thúc</p>
+<p>7d. Dữ liệu lỗi</p>
+<p>7d1. Hệ thống hiển thị lỗi</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Thống kê sản phẩm:
 
 Bảng .: Đặc tả Use Case thống kê sản phẩm
 
-+----+-------------+--------------------------------------------------+
-| S  | Tên UseCase | Thống kê sản phẩm                                |
-| TT |             |                                                  |
-+====+=============+==================================================+
-| 1  | Mô tả       | Là người bán hàng, tôi muốn xem thông tin thống  |
-|    |             | đơn đặt hàng                                     |
-+----+-------------+--------------------------------------------------+
-| 2  | Tác nhân    | Người bán hàng                                   |
-+----+-------------+--------------------------------------------------+
-| 3  | Mức độ ưu   | Bắt buộc có                                      |
-|    | tiên        |                                                  |
-+----+-------------+--------------------------------------------------+
-| 4  | Điều kiện   | Khi người bán hàng truy cập trang web cho người  |
-|    | kích hoạt   | bán hàng và nhấn vào tính năng xem thông tin     |
-|    |             | thống kê đơn đặt hàng                            |
-+----+-------------+--------------------------------------------------+
-| 5  | Điều kiện   | Thiết bị của người bán hàng đang kết nối         |
-|    | cần         | internet                                         |
-|    |             |                                                  |
-|    |             | Người bán hàng đã truy cập web                   |
-|    |             |                                                  |
-|    |             | Người bán hàng đã đăng nhập                      |
-+----+-------------+--------------------------------------------------+
-| 6  | Những thứ   | Thông tin thống kê sản phẩm được hiển thị        |
-|    | xuất hiện   |                                                  |
-|    | sau         |                                                  |
-+----+-------------+--------------------------------------------------+
-| 7  | Luồng sự    | 1\. Người bán hàng truy cập ứng dụng             |
-|    | kiện chính  |                                                  |
-|    |             | 2\. Người bán hàng nhấn vào chức năng quản lý    |
-|    |             | cửa hàng                                         |
-|    |             |                                                  |
-|    |             | 3\. Hệ thống thực hiện lấy dữ liệu cửa hàng      |
-|    |             |                                                  |
-|    |             | 4\. Hệ thống hiển thị trang web quản lý          |
-|    |             |                                                  |
-|    |             | 5\. Người bán hàng nhấn vào chức năng xem thông  |
-|    |             | tin thống kê                                     |
-|    |             |                                                  |
-|    |             | 6\. Người bán hàng nhấn vào chức năng xem thông  |
-|    |             | tin thống kê đơn sản phẩm                        |
-|    |             |                                                  |
-|    |             | 7\. Hệ thống thực hiện phân tích dữ liệu         |
-|    |             |                                                  |
-|    |             | 8\. Hệ thống hiển thị                            |
-+----+-------------+--------------------------------------------------+
-| 8  | Luồng sự    | Không                                            |
-|    | kiện thay   |                                                  |
-|    | thế         |                                                  |
-+----+-------------+--------------------------------------------------+
-| 9  | Luồng ngoại | 4c. Người dùng mất mạng                          |
-|    | lệ          |                                                  |
-|    |             | 4c1. Hệ thống hiển thị lỗi                       |
-|    |             |                                                  |
-|    |             | Use Case kết thúc                                |
-|    |             |                                                  |
-|    |             | 7d. Dữ liệu lỗi                                  |
-|    |             |                                                  |
-|    |             | 7d1. Hệ thống hiển thị lỗi                       |
-+----+-------------+--------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 20%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Thống kê sản phẩm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người bán hàng, tôi muốn xem thông tin thống đơn đặt hàng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người bán hàng truy cập trang web cho người bán hàng và nhấn vào
+tính năng xem thông tin thống kê đơn đặt hàng</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người bán hàng đang kết nối internet</p>
+<p>Người bán hàng đã truy cập web</p>
+<p>Người bán hàng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Thông tin thống kê sản phẩm được hiển thị</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người bán hàng truy cập ứng dụng</p>
+<p>2. Người bán hàng nhấn vào chức năng quản lý cửa hàng</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu cửa hàng</p>
+<p>4. Hệ thống hiển thị trang web quản lý</p>
+<p>5. Người bán hàng nhấn vào chức năng xem thông tin thống kê</p>
+<p>6. Người bán hàng nhấn vào chức năng xem thông tin thống kê đơn sản
+phẩm</p>
+<p>7. Hệ thống thực hiện phân tích dữ liệu</p>
+<p>8. Hệ thống hiển thị</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td>Không</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>4c. Người dùng mất mạng</p>
+<p>4c1. Hệ thống hiển thị lỗi</p>
+<p>Use Case kết thúc</p>
+<p>7d. Dữ liệu lỗi</p>
+<p>7d1. Hệ thống hiển thị lỗi</p></td>
+</tr>
+</tbody>
+</table>
 
 -   
 
@@ -1387,379 +1715,490 @@ Bảng .: Đặc tả Use Case thống kê sản phẩm
 
 Bảng .: Đặc tả Use Case quản lý hàng hóa
 
-+----+---------------+-------------------------------------------------+
-| S  | Tên UseCase   | Quản lý hàng hóa                                |
-| TT |               |                                                 |
-+====+===============+=================================================+
-| 1  | Mô tả         | Là người bán hàng, tôi muốn quản lý hàng hóa    |
-+----+---------------+-------------------------------------------------+
-| 2  | Tác nhân      | Người bán hàng                                  |
-+----+---------------+-------------------------------------------------+
-| 3  | Mức độ ưu     | Bắt buộc có                                     |
-|    | tiên          |                                                 |
-+----+---------------+-------------------------------------------------+
-| 4  | Điều kiện     | Khi người bán hàng truy cập trang web cho người |
-|    | kích hoạt     | bán hàng và nhấn vào tính năng quản lý hàng hóa |
-+----+---------------+-------------------------------------------------+
-| 5  | Điều kiện cần | Thiết bị của người bán hàng đang kết nối        |
-|    |               | internet                                        |
-|    |               |                                                 |
-|    |               | Người bán hàng đã truy cập web                  |
-|    |               |                                                 |
-|    |               | Người bán hàng đã đăng nhập                     |
-+----+---------------+-------------------------------------------------+
-| 6  | Những thứ     | Thông tin quản lý hàng hóa và các chức năng     |
-|    | xuất hiện sau | được hiển thị                                   |
-+----+---------------+-------------------------------------------------+
-| 7  | Luồng sự kiện | 1\. Người bán hàng truy cập ứng dụng            |
-|    | chính         |                                                 |
-|    |               | 2\. Người bán hàng nhấn vào chức năng quản lý   |
-|    |               | hàng hóa                                        |
-|    |               |                                                 |
-|    |               | 3\. Hệ thống thực hiện lấy dữ liệu cửa hàng     |
-|    |               |                                                 |
-|    |               | 4\. Hệ thống hiển thị trang web quản lý hàng    |
-|    |               | hóa                                             |
-|    |               |                                                 |
-|    |               | 5\. Người bán hàng nhấn chức năng quản lý hàng  |
-|    |               | hóa                                             |
-|    |               |                                                 |
-|    |               | 6\. Hệ thống thực hiện phân tích dữ liệu        |
-|    |               |                                                 |
-|    |               | 7\. Hệ thống hiển thị                           |
-+----+---------------+-------------------------------------------------+
-| 8  | Luồng sự kiện | 5a. Người bán hàng nhấn chức năng tạo danh mục  |
-|    | thay thế      | sản phẩm                                        |
-|    |               |                                                 |
-|    |               | *Use Case tiếp tục thực hiện Use Case tạo danh  |
-|    |               | mục sản phẩm*                                   |
-|    |               |                                                 |
-|    |               | 5b. Người bán hàng nhấn chức năng CRUD sản phẩm |
-|    |               |                                                 |
-|    |               | *Use Case tiếp tục thực hiện Use Case CRUD sản  |
-|    |               | phẩm*                                           |
-|    |               |                                                 |
-|    |               | 5c. Người bán hàng nhấn chức năng CRUD mã giảm  |
-|    |               | giá                                             |
-|    |               |                                                 |
-|    |               | *Use Case tiếp tục thực hiện Use Case CRUD mã   |
-|    |               | giảm giá*                                       |
-+----+---------------+-------------------------------------------------+
-| 9  | Luồng ngoại   | 4d. Người dùng mất mạng                         |
-|    | lệ            |                                                 |
-|    |               | 4d1. Hệ thống hiển thị lỗi                      |
-|    |               |                                                 |
-|    |               | Use Case kết thúc                               |
-|    |               |                                                 |
-|    |               | 6e. Dữ liệu lỗi                                 |
-|    |               |                                                 |
-|    |               | 6e1. Hệ thống hiển thị lỗi                      |
-+----+---------------+-------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 22%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Quản lý hàng hóa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người bán hàng, tôi muốn quản lý hàng hóa</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người bán hàng truy cập trang web cho người bán hàng và nhấn vào
+tính năng quản lý hàng hóa</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người bán hàng đang kết nối internet</p>
+<p>Người bán hàng đã truy cập web</p>
+<p>Người bán hàng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Thông tin quản lý hàng hóa và các chức năng được hiển thị</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người bán hàng truy cập ứng dụng</p>
+<p>2. Người bán hàng nhấn vào chức năng quản lý hàng hóa</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu cửa hàng</p>
+<p>4. Hệ thống hiển thị trang web quản lý hàng hóa</p>
+<p>5. Người bán hàng nhấn chức năng quản lý hàng hóa</p>
+<p>6. Hệ thống thực hiện phân tích dữ liệu</p>
+<p>7. Hệ thống hiển thị</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>5a. Người bán hàng nhấn chức năng tạo danh mục sản phẩm</p>
+<p><em>Use Case tiếp tục thực hiện Use Case tạo danh mục sản
+phẩm</em></p>
+<p>5b. Người bán hàng nhấn chức năng CRUD sản phẩm</p>
+<p><em>Use Case tiếp tục thực hiện Use Case CRUD sản phẩm</em></p>
+<p>5c. Người bán hàng nhấn chức năng CRUD mã giảm giá</p>
+<p><em>Use Case tiếp tục thực hiện Use Case CRUD mã giảm
+giá</em></p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>4d. Người dùng mất mạng</p>
+<p>4d1. Hệ thống hiển thị lỗi</p>
+<p>Use Case kết thúc</p>
+<p>6e. Dữ liệu lỗi</p>
+<p>6e1. Hệ thống hiển thị lỗi</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Quản lý đơn hàng:
 
 Bảng .: Đặc tả Use Case quản lý đơn hàng
 
-+----+---------------+-------------------------------------------------+
-| S  | Tên UseCase   | Quản lý đơn hàng                                |
-| TT |               |                                                 |
-+====+===============+=================================================+
-| 1  | Mô tả         | Là người bán hàng, tôi muốn quản lý quản lý đơn |
-|    |               | hàng                                            |
-+----+---------------+-------------------------------------------------+
-| 2  | Tác nhân      | Người bán hàng                                  |
-+----+---------------+-------------------------------------------------+
-| 3  | Mức độ ưu     | Bắt buộc có                                     |
-|    | tiên          |                                                 |
-+----+---------------+-------------------------------------------------+
-| 4  | Điều kiện     | Khi người bán hàng truy cập trang web cho người |
-|    | kích hoạt     | bán hàng và nhấn vào tính năng quản lý đơn hàng |
-+----+---------------+-------------------------------------------------+
-| 5  | Điều kiện cần | Thiết bị của người bán hàng đang kết nối        |
-|    |               | internet                                        |
-|    |               |                                                 |
-|    |               | Người bán hàng đã truy cập web                  |
-|    |               |                                                 |
-|    |               | Người bán hàng đã đăng nhập                     |
-+----+---------------+-------------------------------------------------+
-| 6  | Những thứ     | Thông tin quản lý đơn hàng và các chức năng     |
-|    | xuất hiện sau | được hiển thị                                   |
-+----+---------------+-------------------------------------------------+
-| 7  | Luồng sự kiện | 1\. Người bán hàng truy cập ứng dụng            |
-|    | chính         |                                                 |
-|    |               | 2\. Người bán hàng nhấn vào chức năng quản lý   |
-|    |               | đơn hàng                                        |
-|    |               |                                                 |
-|    |               | 3\. Hệ thống thực hiện lấy dữ liệu đơn hàng     |
-|    |               |                                                 |
-|    |               | 4\. Hệ thống hiển thị trang web quản lý đơn     |
-|    |               | hàng                                            |
-|    |               |                                                 |
-|    |               | 5\. Người bán hàng nhấn chức năng quản lý đơn   |
-|    |               | hàng                                            |
-|    |               |                                                 |
-|    |               | 6\. Hệ thống thực hiện phân tích dữ liệu        |
-|    |               |                                                 |
-|    |               | 7\. Hệ thống hiển thị thông tin đơn hàng        |
-+----+---------------+-------------------------------------------------+
-| 8  | Luồng sự kiện | 6a. Người bán hàng nhấn chức năng phản hồi đơn  |
-|    | thay thế      | hàng                                            |
-|    |               |                                                 |
-|    |               | *Use Case tiếp tục thực hiện Use Case phản hồi  |
-|    |               | đơn hàng*                                       |
-|    |               |                                                 |
-|    |               | 6b. Người bán hàng nhấn chức năng giao tiếp với |
-|    |               | khách hàng về đơn hàng                          |
-|    |               |                                                 |
-|    |               | *Use Case tiếp tục thực hiện Use Case giao tiếp |
-|    |               | với khách hàng về đơn hàng*                     |
-+----+---------------+-------------------------------------------------+
-| 9  | Luồng ngoại   | 4c. Người dùng mất mạng                         |
-|    | lệ            |                                                 |
-|    |               | 4c1. Hệ thống hiển thị lỗi                      |
-|    |               |                                                 |
-|    |               | Use Case kết thúc                               |
-+----+---------------+-------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 22%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Quản lý đơn hàng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người bán hàng, tôi muốn quản lý quản lý đơn hàng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người bán hàng truy cập trang web cho người bán hàng và nhấn vào
+tính năng quản lý đơn hàng</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người bán hàng đang kết nối internet</p>
+<p>Người bán hàng đã truy cập web</p>
+<p>Người bán hàng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Thông tin quản lý đơn hàng và các chức năng được hiển thị</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người bán hàng truy cập ứng dụng</p>
+<p>2. Người bán hàng nhấn vào chức năng quản lý đơn hàng</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu đơn hàng</p>
+<p>4. Hệ thống hiển thị trang web quản lý đơn hàng</p>
+<p>5. Người bán hàng nhấn chức năng quản lý đơn hàng</p>
+<p>6. Hệ thống thực hiện phân tích dữ liệu</p>
+<p>7. Hệ thống hiển thị thông tin đơn hàng</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>6a. Người bán hàng nhấn chức năng phản hồi đơn hàng</p>
+<p><em>Use Case tiếp tục thực hiện Use Case phản hồi đơn hàng</em></p>
+<p>6b. Người bán hàng nhấn chức năng giao tiếp với khách hàng về đơn
+hàng</p>
+<p><em>Use Case tiếp tục thực hiện Use Case giao tiếp với khách hàng về
+đơn hàng</em></p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>4c. Người dùng mất mạng</p>
+<p>4c1. Hệ thống hiển thị lỗi</p>
+<p>Use Case kết thúc</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Phản hồi đơn hàng:
 
 Bảng .: Đặc tả Use Case phản hồi đơn hàng
 
-+----+--------------+-------------------------------------------------+
-| S  | Tên UseCase  | Phản hồi đơn hàng                               |
-| TT |              |                                                 |
-+====+==============+=================================================+
-| 1  | Mô tả        | Là người bán hàng, tôi muốn phản hồi đơn hàng   |
-+----+--------------+-------------------------------------------------+
-| 2  | Tác nhân     | Người bán hàng                                  |
-+----+--------------+-------------------------------------------------+
-| 3  | Mức độ ưu    | Bắt buộc có                                     |
-|    | tiên         |                                                 |
-+----+--------------+-------------------------------------------------+
-| 4  | Điều kiện    | Khi người bán hàng truy cập trang web cho người |
-|    | kích hoạt    | bán hàng và nhấn vào tính năng phản hồi đơn     |
-|    |              | hàng                                            |
-+----+--------------+-------------------------------------------------+
-| 5  | Điều kiện    | Thiết bị của người bán hàng đang kết nối        |
-|    | cần          | internet                                        |
-|    |              |                                                 |
-|    |              | Người bán hàng đã truy cập web                  |
-|    |              |                                                 |
-|    |              | Người bán hàng đã đăng nhập                     |
-+----+--------------+-------------------------------------------------+
-| 6  | Những thứ    | Đơn hàng được phản hồi thành công               |
-|    | xuất hiện    |                                                 |
-|    | sau          |                                                 |
-+----+--------------+-------------------------------------------------+
-| 7  | Luồng sự     | 1\. Người bán hàng truy cập ứng dụng            |
-|    | kiện chính   |                                                 |
-|    |              | 2\. Người bán hàng nhấn vào chức năng quản lý   |
-|    |              | đơn hàng                                        |
-|    |              |                                                 |
-|    |              | 3\. Hệ thống thực hiện lấy dữ liệu đơn hàng     |
-|    |              |                                                 |
-|    |              | 4\. Hệ thống hiển thị trang web quản lý đơn     |
-|    |              | hàng                                            |
-|    |              |                                                 |
-|    |              | 5\. Người bán hàng nhấn chức năng phản hồi đơn  |
-|    |              | hàng                                            |
-|    |              |                                                 |
-|    |              | 6\. Hệ thống thực hiện phân tích dữ liệu        |
-|    |              |                                                 |
-|    |              | 7\. Hệ thống hiển thị thông tin đơn hàng        |
-+----+--------------+-------------------------------------------------+
-| 8  | Luồng sự     | 5a. Người bán hàng nhấn chức năng tiếp nhận đơn |
-|    | kiện thay    | hàng                                            |
-|    | thế          |                                                 |
-|    |              | *Use Case tiếp tục thực hiện Use Case tiếp nhận |
-|    |              | đơn hàng*                                       |
-|    |              |                                                 |
-|    |              | 5b. Người bán hàng nhấn chức năng từ chối đơn   |
-|    |              | hàng                                            |
-|    |              |                                                 |
-|    |              | *Use Case tiếp tục thực hiện Use Case từ chối   |
-|    |              | đơn hàng*                                       |
-+----+--------------+-------------------------------------------------+
-| 9  | Luồng ngoại  | Không                                           |
-|    | lệ           |                                                 |
-+----+--------------+-------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 22%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Phản hồi đơn hàng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người bán hàng, tôi muốn phản hồi đơn hàng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người bán hàng truy cập trang web cho người bán hàng và nhấn vào
+tính năng phản hồi đơn hàng</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người bán hàng đang kết nối internet</p>
+<p>Người bán hàng đã truy cập web</p>
+<p>Người bán hàng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Đơn hàng được phản hồi thành công</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người bán hàng truy cập ứng dụng</p>
+<p>2. Người bán hàng nhấn vào chức năng quản lý đơn hàng</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu đơn hàng</p>
+<p>4. Hệ thống hiển thị trang web quản lý đơn hàng</p>
+<p>5. Người bán hàng nhấn chức năng phản hồi đơn hàng</p>
+<p>6. Hệ thống thực hiện phân tích dữ liệu</p>
+<p>7. Hệ thống hiển thị thông tin đơn hàng</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>5a. Người bán hàng nhấn chức năng tiếp nhận đơn hàng</p>
+<p><em>Use Case tiếp tục thực hiện Use Case tiếp nhận đơn hàng</em></p>
+<p>5b. Người bán hàng nhấn chức năng từ chối đơn hàng</p>
+<p><em>Use Case tiếp tục thực hiện Use Case từ chối đơn
+hàng</em></p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td>Không</td>
+</tr>
+</tbody>
+</table>
 
 -   Tiếp nhận đơn hàng:
 
 Bảng .: Đặc tả Use Case tiếp nhận đơn hàng
 
-+----+------------+---------------------------------------------------+
-| S  | Tên        | Tiếp nhận đơn hàng                                |
-| TT | UseCase    |                                                   |
-+====+============+===================================================+
-| 1  | Mô tả      | Là người bán hàng, tôi muốn tiếp nhận đơn hàng    |
-+----+------------+---------------------------------------------------+
-| 2  | Tác nhân   | Người bán hàng                                    |
-+----+------------+---------------------------------------------------+
-| 3  | Mức độ ưu  | Bắt buộc có                                       |
-|    | tiên       |                                                   |
-+----+------------+---------------------------------------------------+
-| 4  | Điều kiện  | Khi người bán hàng truy cập trang web cho người   |
-|    | kích hoạt  | bán hàng và nhấn vào tính năng quản lý đơn hàng,  |
-|    |            | sau đó nhấn vào tính năng tiếp nhận đơn hàng      |
-+----+------------+---------------------------------------------------+
-| 5  | Điều kiện  | Thiết bị của người bán hàng đang kết nối internet |
-|    | cần        |                                                   |
-|    |            | Người bán hàng đã truy cập web                    |
-|    |            |                                                   |
-|    |            | Người bán hàng đã đăng nhập                       |
-+----+------------+---------------------------------------------------+
-| 6  | Những thứ  | Đơn hàng được tiếp nhận thành công                |
-|    | xuất hiện  |                                                   |
-|    | sau        |                                                   |
-+----+------------+---------------------------------------------------+
-| 7  | Luồng sự   | 1\. Người bán hàng truy cập ứng dụng              |
-|    | kiện chính |                                                   |
-|    |            | 2\. Người bán hàng nhấn vào chức năng quản lý đơn |
-|    |            | hàng                                              |
-|    |            |                                                   |
-|    |            | 3\. Hệ thống thực hiện lấy dữ liệu đơn hàng       |
-|    |            |                                                   |
-|    |            | 4\. Hệ thống hiển thị trang web quản lý đơn hàng  |
-|    |            |                                                   |
-|    |            | 5\. Người bán hàng nhấn chức năng tiếp nhận đơn   |
-|    |            | hàng tại đơn hàng                                 |
-|    |            |                                                   |
-|    |            | 6\. Hệ thống thực hiện phân tích dữ liệu          |
-|    |            |                                                   |
-|    |            | 7\. Hệ thống hiển thị thông tin đơn hàng          |
-+----+------------+---------------------------------------------------+
-| 8  | Luồng sự   | 5a. Người bán hàng nhấn chức năng từ chối đơn     |
-|    | kiện thay  | hàng                                              |
-|    | thế        |                                                   |
-|    |            | *Use Case tiếp tục thực hiện Use Case từ chối đơn |
-|    |            | hàng*                                             |
-+----+------------+---------------------------------------------------+
-| 9  | Luồng      | 4c. Người dùng mất mạng                           |
-|    | ngoại lệ   |                                                   |
-|    |            | 4c1. Hệ thống hiển thị lỗi                        |
-|    |            |                                                   |
-|    |            | Use Case kết thúc                                 |
-+----+------------+---------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 19%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Tiếp nhận đơn hàng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người bán hàng, tôi muốn tiếp nhận đơn hàng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người bán hàng truy cập trang web cho người bán hàng và nhấn vào
+tính năng quản lý đơn hàng, sau đó nhấn vào tính năng tiếp nhận đơn
+hàng</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người bán hàng đang kết nối internet</p>
+<p>Người bán hàng đã truy cập web</p>
+<p>Người bán hàng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Đơn hàng được tiếp nhận thành công</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người bán hàng truy cập ứng dụng</p>
+<p>2. Người bán hàng nhấn vào chức năng quản lý đơn hàng</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu đơn hàng</p>
+<p>4. Hệ thống hiển thị trang web quản lý đơn hàng</p>
+<p>5. Người bán hàng nhấn chức năng tiếp nhận đơn hàng tại đơn hàng</p>
+<p>6. Hệ thống thực hiện phân tích dữ liệu</p>
+<p>7. Hệ thống hiển thị thông tin đơn hàng</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>5a. Người bán hàng nhấn chức năng từ chối đơn hàng</p>
+<p><em>Use Case tiếp tục thực hiện Use Case từ chối đơn
+hàng</em></p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>4c. Người dùng mất mạng</p>
+<p>4c1. Hệ thống hiển thị lỗi</p>
+<p>Use Case kết thúc</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Từ chối đơn hàng:
 
 Bảng .: Đặc tả Use Case từ chối đơn hàng
 
-+----+------------+---------------------------------------------------+
-| S  | Tên        | Từ chối đơn hàng                                  |
-| TT | UseCase    |                                                   |
-+====+============+===================================================+
-| 1  | Mô tả      | Là người bán hàng, tôi muốn từ chối đơn hàng      |
-+----+------------+---------------------------------------------------+
-| 2  | Tác nhân   | Người bán hàng                                    |
-+----+------------+---------------------------------------------------+
-| 3  | Mức độ ưu  | Bắt buộc có                                       |
-|    | tiên       |                                                   |
-+----+------------+---------------------------------------------------+
-| 4  | Điều kiện  | Khi người bán hàng truy cập trang web cho người   |
-|    | kích hoạt  | bán hàng và nhấn vào tính năng quản lý đơn hàng,  |
-|    |            | sau đó nhấn vào tính năng từ chối đơn hàng        |
-+----+------------+---------------------------------------------------+
-| 5  | Điều kiện  | Thiết bị của người bán hàng đang kết nối internet |
-|    | cần        |                                                   |
-|    |            | Người bán hàng đã truy cập web                    |
-|    |            |                                                   |
-|    |            | Người bán hàng đã đăng nhập                       |
-+----+------------+---------------------------------------------------+
-| 6  | Những thứ  | Đơn hàng bị từ chối thành công                    |
-|    | xuất hiện  |                                                   |
-|    | sau        |                                                   |
-+----+------------+---------------------------------------------------+
-| 7  | Luồng sự   | 1\. Người bán hàng truy cập ứng dụng              |
-|    | kiện chính |                                                   |
-|    |            | 2\. Người bán hàng nhấn vào chức năng quản lý đơn |
-|    |            | hàng                                              |
-|    |            |                                                   |
-|    |            | 3\. Hệ thống thực hiện lấy dữ liệu đơn hàng       |
-|    |            |                                                   |
-|    |            | 4\. Hệ thống hiển thị trang web quản lý đơn hàng  |
-|    |            |                                                   |
-|    |            | 5\. Người bán hàng nhấn chức năng từ chối đơn     |
-|    |            | hàng tại đơn hàng                                 |
-|    |            |                                                   |
-|    |            | 6\. Hệ thống thực hiện phân tích dữ liệu          |
-|    |            |                                                   |
-|    |            | 7\. Hệ thống hiển thị tính năng Giao tiếp với     |
-|    |            | khách hàng về đơn hàng                            |
-|    |            |                                                   |
-|    |            | *Use Case tiếp tục thực hiện Use Case giao tiếp   |
-|    |            | với khách hàng về đơn hàng*                       |
-+----+------------+---------------------------------------------------+
-| 8  | Luồng sự   | 5a. Người bán hàng nhấn chức năng tiếp nhận đơn   |
-|    | kiện thay  | hàng                                              |
-|    | thế        |                                                   |
-|    |            | *Use Case tiếp tục thực hiện Use Case tiếp nhận   |
-|    |            | đơn hàng*                                         |
-+----+------------+---------------------------------------------------+
-| 9  | Luồng      | 4c. Người dùng mất mạng                           |
-|    | ngoại lệ   |                                                   |
-|    |            | 4c1. Hệ thống hiển thị lỗi                        |
-|    |            |                                                   |
-|    |            | Use Case kết thúc                                 |
-+----+------------+---------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 19%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Từ chối đơn hàng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người bán hàng, tôi muốn từ chối đơn hàng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người bán hàng truy cập trang web cho người bán hàng và nhấn vào
+tính năng quản lý đơn hàng, sau đó nhấn vào tính năng từ chối đơn
+hàng</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người bán hàng đang kết nối internet</p>
+<p>Người bán hàng đã truy cập web</p>
+<p>Người bán hàng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Đơn hàng bị từ chối thành công</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người bán hàng truy cập ứng dụng</p>
+<p>2. Người bán hàng nhấn vào chức năng quản lý đơn hàng</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu đơn hàng</p>
+<p>4. Hệ thống hiển thị trang web quản lý đơn hàng</p>
+<p>5. Người bán hàng nhấn chức năng từ chối đơn hàng tại đơn hàng</p>
+<p>6. Hệ thống thực hiện phân tích dữ liệu</p>
+<p>7. Hệ thống hiển thị tính năng Giao tiếp với khách hàng về đơn
+hàng</p>
+<p><em>Use Case tiếp tục thực hiện Use Case giao tiếp với khách hàng về
+đơn hàng</em></p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>5a. Người bán hàng nhấn chức năng tiếp nhận đơn hàng</p>
+<p><em>Use Case tiếp tục thực hiện Use Case tiếp nhận đơn
+hàng</em></p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>4c. Người dùng mất mạng</p>
+<p>4c1. Hệ thống hiển thị lỗi</p>
+<p>Use Case kết thúc</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Giao tiếp với khách hàng về đơn hàng:
 
 Bảng .: Đặc tả Use Case giao tiếp với khách hàng về đơn hàng
 
-+----+------------+---------------------------------------------------+
-| S  | Tên        | Giao tiếp với khách hàng về đơn hàng              |
-| TT | UseCase    |                                                   |
-+====+============+===================================================+
-| 1  | Mô tả      | Là người bán hàng, tôi muốn giao tiếp với khách   |
-|    |            | hàng về đơn hàng                                  |
-+----+------------+---------------------------------------------------+
-| 2  | Tác nhân   | Người bán hàng                                    |
-+----+------------+---------------------------------------------------+
-| 3  | Mức độ ưu  | Bắt buộc có                                       |
-|    | tiên       |                                                   |
-+----+------------+---------------------------------------------------+
-| 4  | Điều kiện  | Khi người bán hàng truy cập trang web cho người   |
-|    | kích hoạt  | bán hàng và nhấn vào tính năng quản lý đơn hàng,  |
-|    |            | sau đó nhấn tính năng giao tiếp với khách hàng    |
-+----+------------+---------------------------------------------------+
-| 5  | Điều kiện  | Thiết bị của người bán hàng đang kết nối internet |
-|    | cần        |                                                   |
-|    |            | Người bán hàng đã truy cập web                    |
-|    |            |                                                   |
-|    |            | Người bán hàng đã đăng nhập                       |
-+----+------------+---------------------------------------------------+
-| 6  | Những thứ  | Người bán hàng giao tiếp được với người mua hàng  |
-|    | xuất hiện  |                                                   |
-|    | sau        |                                                   |
-+----+------------+---------------------------------------------------+
-| 7  | Luồng sự   | 1\. Người bán hàng truy cập ứng dụng              |
-|    | kiện chính |                                                   |
-|    |            | 2\. Người bán hàng nhấn vào chức năng quản lý đơn |
-|    |            | hàng                                              |
-|    |            |                                                   |
-|    |            | 3\. Hệ thống thực hiện lấy dữ liệu đơn hàng       |
-|    |            |                                                   |
-|    |            | 4\. Hệ thống hiển thị trang web quản lý đơn hàng  |
-|    |            |                                                   |
-|    |            | 5\. Người bán hàng nhấn chức năng giao tiếp với   |
-|    |            | khách hàng trên đơn hàng                          |
-|    |            |                                                   |
-|    |            | 6\. Hệ thống thực hiện thiết lập phòng nhắn tin   |
-|    |            |                                                   |
-|    |            | 7\. Người bán hàng nhấn nội dung tin và thực hiện |
-|    |            | nhắn tin                                          |
-|    |            |                                                   |
-|    |            | 8\. Hệ thống thực hiện gửi tin nhắn               |
-+----+------------+---------------------------------------------------+
-| 8  | Luồng sự   | Không                                             |
-|    | kiện thay  |                                                   |
-|    | thế        |                                                   |
-+----+------------+---------------------------------------------------+
-| 9  | Luồng      | Không                                             |
-|    | ngoại lệ   |                                                   |
-+----+------------+---------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 19%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Giao tiếp với khách hàng về đơn hàng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người bán hàng, tôi muốn giao tiếp với khách hàng về đơn
+hàng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người bán hàng truy cập trang web cho người bán hàng và nhấn vào
+tính năng quản lý đơn hàng, sau đó nhấn tính năng giao tiếp với khách
+hàng</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người bán hàng đang kết nối internet</p>
+<p>Người bán hàng đã truy cập web</p>
+<p>Người bán hàng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Người bán hàng giao tiếp được với người mua hàng</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người bán hàng truy cập ứng dụng</p>
+<p>2. Người bán hàng nhấn vào chức năng quản lý đơn hàng</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu đơn hàng</p>
+<p>4. Hệ thống hiển thị trang web quản lý đơn hàng</p>
+<p>5. Người bán hàng nhấn chức năng giao tiếp với khách hàng trên đơn
+hàng</p>
+<p>6. Hệ thống thực hiện thiết lập phòng nhắn tin</p>
+<p>7. Người bán hàng nhấn nội dung tin và thực hiện nhắn tin</p>
+<p>8. Hệ thống thực hiện gửi tin nhắn</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td>Không</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td>Không</td>
+</tr>
+</tbody>
+</table>
 
 ### Nhóm UseCase CRUD
 
@@ -1767,321 +2206,299 @@ Bảng .: Đặc tả Use Case giao tiếp với khách hàng về đơn hàng
 
 Bảng .: Đặc tả Use Case CRUD sản phẩm
 
-+----+--------------+-------------------------------------------------+
-| S  | Tên UseCase  | CRUD sản phẩm                                   |
-| TT |              |                                                 |
-+====+==============+=================================================+
-| 1  | Mô tả        | Là người bán hàng, tôi muốn quản lý sản phẩm    |
-+----+--------------+-------------------------------------------------+
-| 2  | Tác nhân     | Người bán hàng                                  |
-+----+--------------+-------------------------------------------------+
-| 3  | Mức độ ưu    | Bắt buộc có                                     |
-|    | tiên         |                                                 |
-+----+--------------+-------------------------------------------------+
-| 4  | Điều kiện    | Khi người bán hàng truy cập trang web cho người |
-|    | kích hoạt    | bán hàng và nhấn vào tính năng chỉnh sửa sản    |
-|    |              | phẩm                                            |
-+----+--------------+-------------------------------------------------+
-| 5  | Điều kiện    | Thiết bị của người bán hàng đang kết nối        |
-|    | cần          | internet                                        |
-|    |              |                                                 |
-|    |              | Người bán hàng đã truy cập web                  |
-|    |              |                                                 |
-|    |              | Người bán hàng đã đăng nhập                     |
-+----+--------------+-------------------------------------------------+
-| 6  | Những thứ    | Sản phẩm được thay đổi thành công               |
-|    | xuất hiện    |                                                 |
-|    | sau          |                                                 |
-+----+--------------+-------------------------------------------------+
-| 7  | Luồng sự     | 1\. Người bán hàng truy cập ứng dụng            |
-|    | kiện chính   |                                                 |
-|    |              | 2\. Người bán hàng nhấn vào chức năng quản lý   |
-|    |              | hàng hóa                                        |
-|    |              |                                                 |
-|    |              | 3\. Hệ thống thực hiện lấy dữ liệu cửa hàng     |
-|    |              |                                                 |
-|    |              | 4\. Hệ thống hiển thị trang web quản lý hàng    |
-|    |              | hóa                                             |
-|    |              |                                                 |
-|    |              | 5\. Người bán hàng nhấn chức năng quản lý hàng  |
-|    |              | hóa                                             |
-|    |              |                                                 |
-|    |              | 6\. Người bán hàng nhấn vào chức năng tạo sản   |
-|    |              | phẩm                                            |
-|    |              |                                                 |
-|    |              | 7\. Người bán hàng nhập dữ liệu vào các trường  |
-|    |              | trên form nhập dữ liệu                          |
-|    |              |                                                 |
-|    |              | 8\. Người bán hàng nhấn nút đồng ý              |
-|    |              |                                                 |
-|    |              | 9\. Hệ thống hiển thị kết quả                   |
-+----+--------------+-------------------------------------------------+
-| 8  | Luồng sự     | 6a. Người bán hàng nhấn chức năng xóa sản phẩm  |
-|    | kiện thay    |                                                 |
-|    | thế          | 6a1. Người bán hàng nhấn nút thùng rác tại sản  |
-|    |              | phẩm                                            |
-|    |              |                                                 |
-|    |              | 6a2. Hệ thống thực hiện yêu cầu                 |
-|    |              |                                                 |
-|    |              | 6a3. Hệ thống hiển thị thông báo                |
-|    |              |                                                 |
-|    |              | 6b. Người bán hàng nhấn chức năng chỉnh sửa sản |
-|    |              | phẩm                                            |
-|    |              |                                                 |
-|    |              | 6b1. Người bán hàng nhấn nút cờ lê tại sản phẩm |
-|    |              |                                                 |
-|    |              | 6b2. Hệ thống hiển thị form chỉnh sửa           |
-|    |              |                                                 |
-|    |              | 6b3. Người bán hàng thực hiện chỉnh sửa dữ liệu |
-|    |              |                                                 |
-|    |              | 6b4. Người bán hàng nhấn nút đồng ý             |
-|    |              |                                                 |
-|    |              | 6b5. Hệ thống thực hiện yêu cầu                 |
-|    |              |                                                 |
-|    |              | 6b6. Hệ thống hiển thị thông báo                |
-|    |              |                                                 |
-|    |              | 6b4a. Người bán hàng nhấn nút thoát             |
-|    |              |                                                 |
-|    |              | 6b4a1. Dữ liệu bị huỷ, hệ thống chuyển trang về |
-|    |              | trang trước                                     |
-|    |              |                                                 |
-|    |              | 8c. Người bán hàng nhấn nút clear form          |
-|    |              |                                                 |
-|    |              | 8c1. Dữ liệu trên form bị xóa hết               |
-|    |              |                                                 |
-|    |              | 8d. Người bán hàng nhấn nút thoát               |
-|    |              |                                                 |
-|    |              | 8d1. Dữ liệu bị huỷ, hệ thống chuyển trang về   |
-|    |              | trang trước                                     |
-+----+--------------+-------------------------------------------------+
-| 9  | Luồng ngoại  | 8e, 6b4b. Trường dữ liệu nhập không đúng định   |
-|    | lệ           | dạng                                            |
-|    |              |                                                 |
-|    |              | 8e1, 6b4b1. Hiển thị thông báo lỗi              |
-|    |              |                                                 |
-|    |              | 8f, 6b4c. Trường dữ liệu nhập dữ liệu bị trùng  |
-|    |              |                                                 |
-|    |              | 8f1, 6b4c1. Hiển thị thông báo lỗi              |
-|    |              |                                                 |
-|    |              | 8g, 6b4d. Máy người bán hàng bị mất mạng        |
-|    |              |                                                 |
-|    |              | 8g1, 6b4d1. Hiển thị thông báo lỗi              |
-+----+--------------+-------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 22%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>CRUD sản phẩm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người bán hàng, tôi muốn quản lý sản phẩm</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người bán hàng truy cập trang web cho người bán hàng và nhấn vào
+tính năng chỉnh sửa sản phẩm</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người bán hàng đang kết nối internet</p>
+<p>Người bán hàng đã truy cập web</p>
+<p>Người bán hàng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Sản phẩm được thay đổi thành công</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người bán hàng truy cập ứng dụng</p>
+<p>2. Người bán hàng nhấn vào chức năng quản lý hàng hóa</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu cửa hàng</p>
+<p>4. Hệ thống hiển thị trang web quản lý hàng hóa</p>
+<p>5. Người bán hàng nhấn chức năng quản lý hàng hóa</p>
+<p>6. Người bán hàng nhấn vào chức năng tạo sản phẩm</p>
+<p>7. Người bán hàng nhập dữ liệu vào các trường trên form nhập dữ
+liệu</p>
+<p>8. Người bán hàng nhấn nút đồng ý</p>
+<p>9. Hệ thống hiển thị kết quả</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>6a. Người bán hàng nhấn chức năng xóa sản phẩm</p>
+<p>6a1. Người bán hàng nhấn nút thùng rác tại sản phẩm</p>
+<p>6a2. Hệ thống thực hiện yêu cầu</p>
+<p>6a3. Hệ thống hiển thị thông báo</p>
+<p>6b. Người bán hàng nhấn chức năng chỉnh sửa sản phẩm</p>
+<p>6b1. Người bán hàng nhấn nút cờ lê tại sản phẩm</p>
+<p>6b2. Hệ thống hiển thị form chỉnh sửa</p>
+<p>6b3. Người bán hàng thực hiện chỉnh sửa dữ liệu</p>
+<p>6b4. Người bán hàng nhấn nút đồng ý</p>
+<p>6b5. Hệ thống thực hiện yêu cầu</p>
+<p>6b6. Hệ thống hiển thị thông báo</p>
+<p>6b4a. Người bán hàng nhấn nút thoát</p>
+<p>6b4a1. Dữ liệu bị huỷ, hệ thống chuyển trang về trang trước</p>
+<p>8c. Người bán hàng nhấn nút clear form</p>
+<p>8c1. Dữ liệu trên form bị xóa hết</p>
+<p>8d. Người bán hàng nhấn nút thoát</p>
+<p>8d1. Dữ liệu bị huỷ, hệ thống chuyển trang về trang trước</p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>8e, 6b4b. Trường dữ liệu nhập không đúng định dạng</p>
+<p>8e1, 6b4b1. Hiển thị thông báo lỗi</p>
+<p>8f, 6b4c. Trường dữ liệu nhập dữ liệu bị trùng</p>
+<p>8f1, 6b4c1. Hiển thị thông báo lỗi</p>
+<p>8g, 6b4d. Máy người bán hàng bị mất mạng</p>
+<p>8g1, 6b4d1. Hiển thị thông báo lỗi</p></td>
+</tr>
+</tbody>
+</table>
 
 -   CRUD mã giảm giá của người bán hàng:
 
 Bảng .: Đặc tả Use Case CRUD mã giảm giá của người bán hàng
 
-+----+--------------+--------------------------------------------------+
-| S  | Tên UseCase  | CRUD mã giảm giá                                 |
-| TT |              |                                                  |
-+====+==============+==================================================+
-| 1  | Mô tả        | Là người bán hàng, tôi muốn quản lý mã giảm giá  |
-+----+--------------+--------------------------------------------------+
-| 2  | Tác nhân     | Người bán hàng                                   |
-+----+--------------+--------------------------------------------------+
-| 3  | Mức độ ưu    | Bắt buộc có                                      |
-|    | tiên         |                                                  |
-+----+--------------+--------------------------------------------------+
-| 4  | Điều kiện    | Khi người bán hàng truy cập trang web cho người  |
-|    | kích hoạt    | bán hàng và nhấn vào tính năng chỉnh sửa mã giảm |
-|    |              | giá                                              |
-+----+--------------+--------------------------------------------------+
-| 5  | Điều kiện    | Thiết bị của người bán hàng đang kết nối         |
-|    | cần          | internet                                         |
-|    |              |                                                  |
-|    |              | Người bán hàng đã truy cập web                   |
-|    |              |                                                  |
-|    |              | Người bán hàng đã đăng nhập                      |
-+----+--------------+--------------------------------------------------+
-| 6  | Những thứ    | Mã giảm giá được thay đổi thành công             |
-|    | xuất hiện    |                                                  |
-|    | sau          |                                                  |
-+----+--------------+--------------------------------------------------+
-| 7  | Luồng sự     | 1\. Người bán hàng truy cập ứng dụng             |
-|    | kiện chính   |                                                  |
-|    |              | 2\. Người bán hàng nhấn vào chức năng quản lý mã |
-|    |              | giảm giá                                         |
-|    |              |                                                  |
-|    |              | 3\. Hệ thống thực hiện lấy dữ liệu               |
-|    |              |                                                  |
-|    |              | 4\. Hệ thống hiển thị trang web quản lý mã giảm  |
-|    |              | giá                                              |
-|    |              |                                                  |
-|    |              | 5\. Người bán hàng nhấn vào chức năng thêm mã    |
-|    |              | giảm giá                                         |
-|    |              |                                                  |
-|    |              | 6\. Người bán hàng nhập dữ liệu vào các trường   |
-|    |              | trên form nhập dữ liệu                           |
-|    |              |                                                  |
-|    |              | 7\. Người bán hàng nhấn nút đồng ý               |
-|    |              |                                                  |
-|    |              | 8\. Hệ thống thực hiện yêu cầu                   |
-|    |              |                                                  |
-|    |              | 9\. Hệ thống hiển thị thông báo kết quả          |
-+----+--------------+--------------------------------------------------+
-| 8  | Luồng sự     | 5a. Người bán hàng nhấn chức năng xóa mã giảm    |
-|    | kiện thay    | giá                                              |
-|    | thế          |                                                  |
-|    |              | 5a1. Người bán hàng nhấn nút thùng rác tại mã    |
-|    |              | giảm giá                                         |
-|    |              |                                                  |
-|    |              | 5a2. Hệ thống thực hiện yêu cầu                  |
-|    |              |                                                  |
-|    |              | 5a3. Hệ thống hiển thị thông báo                 |
-|    |              |                                                  |
-|    |              | 5b. Người bán hàng nhấn chức năng chỉnh sửa mã   |
-|    |              | giảm giá                                         |
-|    |              |                                                  |
-|    |              | 5b1. Người bán hàng nhấn nút cờ lê tại mã giảm   |
-|    |              | giá                                              |
-|    |              |                                                  |
-|    |              | 5b2. Hệ thống hiển thị form chỉnh sửa            |
-|    |              |                                                  |
-|    |              | 5b3. Người bán hàng thực hiện chỉnh sửa dữ liệu  |
-|    |              |                                                  |
-|    |              | 5b4. Người bán hàng nhấn nút đồng ý              |
-|    |              |                                                  |
-|    |              | 5b5. Hệ thống thực hiện yêu cầu                  |
-|    |              |                                                  |
-|    |              | 5b6. Hệ thống hiển thị thông báo                 |
-|    |              |                                                  |
-|    |              | 5b4a. Người bán hàng nhấn nút thoát              |
-|    |              |                                                  |
-|    |              | 5b4a1. Dữ liệu bị huỷ, hệ thống chuyển trang về  |
-|    |              | trang trước                                      |
-|    |              |                                                  |
-|    |              | 7c. Người bán hàng nhấn nút clear form           |
-|    |              |                                                  |
-|    |              | 7c1. Dữ liệu trên form bị xóa hết                |
-|    |              |                                                  |
-|    |              | 7d. Người bán hàng nhấn nút thoát                |
-|    |              |                                                  |
-|    |              | 7d1. Dữ liệu bị huỷ, hệ thống chuyển trang về    |
-|    |              | trang trước                                      |
-+----+--------------+--------------------------------------------------+
-| 9  | Luồng ngoại  | 7e, 5b4b. Trường dữ liệu nhập không đúng định    |
-|    | lệ           | dạng                                             |
-|    |              |                                                  |
-|    |              | 7e1, 5b4b1. Hiển thị thông báo lỗi               |
-|    |              |                                                  |
-|    |              | 7f, 5b4c. Trường dữ liệu nhập dữ liệu bị trùng   |
-|    |              |                                                  |
-|    |              | 7f1, 5b4c1. Hiển thị thông báo lỗi               |
-|    |              |                                                  |
-|    |              | 7g, 5b4d. Máy người bán hàng bị mất mạng         |
-|    |              |                                                  |
-|    |              | 7g1, 5b4d1. Hiển thị thông báo lỗi               |
-+----+--------------+--------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 21%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>CRUD mã giảm giá</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người bán hàng, tôi muốn quản lý mã giảm giá</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người bán hàng</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người bán hàng truy cập trang web cho người bán hàng và nhấn vào
+tính năng chỉnh sửa mã giảm giá</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người bán hàng đang kết nối internet</p>
+<p>Người bán hàng đã truy cập web</p>
+<p>Người bán hàng đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Mã giảm giá được thay đổi thành công</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người bán hàng truy cập ứng dụng</p>
+<p>2. Người bán hàng nhấn vào chức năng quản lý mã giảm giá</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu</p>
+<p>4. Hệ thống hiển thị trang web quản lý mã giảm giá</p>
+<p>5. Người bán hàng nhấn vào chức năng thêm mã giảm giá</p>
+<p>6. Người bán hàng nhập dữ liệu vào các trường trên form nhập dữ
+liệu</p>
+<p>7. Người bán hàng nhấn nút đồng ý</p>
+<p>8. Hệ thống thực hiện yêu cầu</p>
+<p>9. Hệ thống hiển thị thông báo kết quả</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>5a. Người bán hàng nhấn chức năng xóa mã giảm giá</p>
+<p>5a1. Người bán hàng nhấn nút thùng rác tại mã giảm giá</p>
+<p>5a2. Hệ thống thực hiện yêu cầu</p>
+<p>5a3. Hệ thống hiển thị thông báo</p>
+<p>5b. Người bán hàng nhấn chức năng chỉnh sửa mã giảm giá</p>
+<p>5b1. Người bán hàng nhấn nút cờ lê tại mã giảm giá</p>
+<p>5b2. Hệ thống hiển thị form chỉnh sửa</p>
+<p>5b3. Người bán hàng thực hiện chỉnh sửa dữ liệu</p>
+<p>5b4. Người bán hàng nhấn nút đồng ý</p>
+<p>5b5. Hệ thống thực hiện yêu cầu</p>
+<p>5b6. Hệ thống hiển thị thông báo</p>
+<p>5b4a. Người bán hàng nhấn nút thoát</p>
+<p>5b4a1. Dữ liệu bị huỷ, hệ thống chuyển trang về trang trước</p>
+<p>7c. Người bán hàng nhấn nút clear form</p>
+<p>7c1. Dữ liệu trên form bị xóa hết</p>
+<p>7d. Người bán hàng nhấn nút thoát</p>
+<p>7d1. Dữ liệu bị huỷ, hệ thống chuyển trang về trang trước</p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>7e, 5b4b. Trường dữ liệu nhập không đúng định dạng</p>
+<p>7e1, 5b4b1. Hiển thị thông báo lỗi</p>
+<p>7f, 5b4c. Trường dữ liệu nhập dữ liệu bị trùng</p>
+<p>7f1, 5b4c1. Hiển thị thông báo lỗi</p>
+<p>7g, 5b4d. Máy người bán hàng bị mất mạng</p>
+<p>7g1, 5b4d1. Hiển thị thông báo lỗi</p></td>
+</tr>
+</tbody>
+</table>
 
 -   CRUD mã giảm giá của người quản trị:
 
 Bảng .: Đặc tả Use case CRUD mã giảm giá của người quản trị
 
-+----+--------------+-------------------------------------------------+
-| S  | Tên UseCase  | CRUD mã giảm giá                                |
-| TT |              |                                                 |
-+====+==============+=================================================+
-| 1  | Mô tả        | Là người quản trị, tôi muốn quản lý mã giảm giá |
-+----+--------------+-------------------------------------------------+
-| 2  | Tác nhân     | Người quản trị                                  |
-+----+--------------+-------------------------------------------------+
-| 3  | Mức độ ưu    | Bắt buộc có                                     |
-|    | tiên         |                                                 |
-+----+--------------+-------------------------------------------------+
-| 4  | Điều kiện    | Khi người quản trị truy cập trang web cho người |
-|    | kích hoạt    | quản trị và nhấn vào tính năng chỉnh sửa mã     |
-|    |              | giảm giá                                        |
-+----+--------------+-------------------------------------------------+
-| 5  | Điều kiện    | Thiết bị của người quản trị đang kết nối        |
-|    | cần          | internet                                        |
-|    |              |                                                 |
-|    |              | Người quản trị đã truy cập web                  |
-|    |              |                                                 |
-|    |              | Người quản trị đã đăng nhập                     |
-+----+--------------+-------------------------------------------------+
-| 6  | Những thứ    | Mã giảm giá được thay đổi thành công            |
-|    | xuất hiện    |                                                 |
-|    | sau          |                                                 |
-+----+--------------+-------------------------------------------------+
-| 7  | Luồng sự     | 1\. Người quản trị truy cập ứng dụng            |
-|    | kiện chính   |                                                 |
-|    |              | 2\. Người quản trị nhấn vào chức năng quản lý   |
-|    |              | mã giảm giá                                     |
-|    |              |                                                 |
-|    |              | 3\. Hệ thống thực hiện lấy dữ liệu              |
-|    |              |                                                 |
-|    |              | 4\. Hệ thống hiển thị trang web quản lý mã giảm |
-|    |              | giá                                             |
-|    |              |                                                 |
-|    |              | 5\. Người quản trị nhấn vào chức năng thêm mã   |
-|    |              | giảm giá                                        |
-|    |              |                                                 |
-|    |              | 6\. Người quản trị nhập dữ liệu vào các trường  |
-|    |              | trên form nhập dữ liệu                          |
-|    |              |                                                 |
-|    |              | 7\. Người quản trị nhấn nút đồng ý              |
-|    |              |                                                 |
-|    |              | 8\. Hệ thống thực hiện yêu cầu                  |
-|    |              |                                                 |
-|    |              | 9\. Hệ thống hiển thị thông báo kết quả         |
-+----+--------------+-------------------------------------------------+
-| 8  | Luồng sự     | 5a. Người quản trị nhấn chức năng xóa mã giảm   |
-|    | kiện thay    | giá                                             |
-|    | thế          |                                                 |
-|    |              | 5a1. Người quản trị nhấn nút thùng rác tại mã   |
-|    |              | giảm giá                                        |
-|    |              |                                                 |
-|    |              | 5a2. Hệ thống thực hiện yêu cầu                 |
-|    |              |                                                 |
-|    |              | 5a3. Hệ thống hiển thị thông báo                |
-|    |              |                                                 |
-|    |              | 5b. Người quản trị nhấn chức năng chỉnh sửa mã  |
-|    |              | giảm giá                                        |
-|    |              |                                                 |
-|    |              | 5b1. Người quản trị nhấn nút cờ lê tại mã giảm  |
-|    |              | giá                                             |
-|    |              |                                                 |
-|    |              | 5b2. Hệ thống hiển thị form chỉnh sửa           |
-|    |              |                                                 |
-|    |              | 5b3. Người quản trị thực hiện chỉnh sửa dữ liệu |
-|    |              |                                                 |
-|    |              | 5b4. Người quản trị nhấn nút đồng ý             |
-|    |              |                                                 |
-|    |              | 5b5. Hệ thống thực hiện yêu cầu                 |
-|    |              |                                                 |
-|    |              | 5b6. Hệ thống hiển thị thông báo                |
-|    |              |                                                 |
-|    |              | 5b4a. Người quản trị nhấn nút thoát             |
-|    |              |                                                 |
-|    |              | 5b4a1. Dữ liệu bị huỷ, hệ thống chuyển trang về |
-|    |              | trang trước                                     |
-|    |              |                                                 |
-|    |              | 7c. Người quản trị nhấn nút clear form          |
-|    |              |                                                 |
-|    |              | 7c1. Dữ liệu trên form bị xóa hết               |
-|    |              |                                                 |
-|    |              | 7d. Người quản trị nhấn nút thoát               |
-|    |              |                                                 |
-|    |              | 7d1. Dữ liệu bị huỷ, hệ thống chuyển trang về   |
-|    |              | trang trước                                     |
-+----+--------------+-------------------------------------------------+
-| 9  | Luồng ngoại  | 7e, 5b4b. Trường dữ liệu nhập không đúng định   |
-|    | lệ           | dạng                                            |
-|    |              |                                                 |
-|    |              | 7e1, 5b4b1. Hiển thị thông báo lỗi              |
-|    |              |                                                 |
-|    |              | 7f, 5b4c. Trường dữ liệu nhập dữ liệu bị trùng  |
-|    |              |                                                 |
-|    |              | 7f1, 5b4c1. Hiển thị thông báo lỗi              |
-|    |              |                                                 |
-|    |              | 7g, 5b4d. Máy người quản trị bị mất mạng        |
-|    |              |                                                 |
-|    |              | 7g1, 5b4d1. Hiển thị thông báo lỗi              |
-|    |              |                                                 |
-|    |              | 1h. Tài khoản không được cấp quyền quản trị     |
-|    |              | viên                                            |
-+----+--------------+-------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 22%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>CRUD mã giảm giá</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người quản trị, tôi muốn quản lý mã giảm giá</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người quản trị</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người quản trị truy cập trang web cho người quản trị và nhấn vào
+tính năng chỉnh sửa mã giảm giá</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người quản trị đang kết nối internet</p>
+<p>Người quản trị đã truy cập web</p>
+<p>Người quản trị đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Mã giảm giá được thay đổi thành công</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người quản trị truy cập ứng dụng</p>
+<p>2. Người quản trị nhấn vào chức năng quản lý mã giảm giá</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu</p>
+<p>4. Hệ thống hiển thị trang web quản lý mã giảm giá</p>
+<p>5. Người quản trị nhấn vào chức năng thêm mã giảm giá</p>
+<p>6. Người quản trị nhập dữ liệu vào các trường trên form nhập dữ
+liệu</p>
+<p>7. Người quản trị nhấn nút đồng ý</p>
+<p>8. Hệ thống thực hiện yêu cầu</p>
+<p>9. Hệ thống hiển thị thông báo kết quả</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>5a. Người quản trị nhấn chức năng xóa mã giảm giá</p>
+<p>5a1. Người quản trị nhấn nút thùng rác tại mã giảm giá</p>
+<p>5a2. Hệ thống thực hiện yêu cầu</p>
+<p>5a3. Hệ thống hiển thị thông báo</p>
+<p>5b. Người quản trị nhấn chức năng chỉnh sửa mã giảm giá</p>
+<p>5b1. Người quản trị nhấn nút cờ lê tại mã giảm giá</p>
+<p>5b2. Hệ thống hiển thị form chỉnh sửa</p>
+<p>5b3. Người quản trị thực hiện chỉnh sửa dữ liệu</p>
+<p>5b4. Người quản trị nhấn nút đồng ý</p>
+<p>5b5. Hệ thống thực hiện yêu cầu</p>
+<p>5b6. Hệ thống hiển thị thông báo</p>
+<p>5b4a. Người quản trị nhấn nút thoát</p>
+<p>5b4a1. Dữ liệu bị huỷ, hệ thống chuyển trang về trang trước</p>
+<p>7c. Người quản trị nhấn nút clear form</p>
+<p>7c1. Dữ liệu trên form bị xóa hết</p>
+<p>7d. Người quản trị nhấn nút thoát</p>
+<p>7d1. Dữ liệu bị huỷ, hệ thống chuyển trang về trang trước</p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>7e, 5b4b. Trường dữ liệu nhập không đúng định dạng</p>
+<p>7e1, 5b4b1. Hiển thị thông báo lỗi</p>
+<p>7f, 5b4c. Trường dữ liệu nhập dữ liệu bị trùng</p>
+<p>7f1, 5b4c1. Hiển thị thông báo lỗi</p>
+<p>7g, 5b4d. Máy người quản trị bị mất mạng</p>
+<p>7g1, 5b4d1. Hiển thị thông báo lỗi</p>
+<p>1h. Tài khoản không được cấp quyền quản trị viên</p></td>
+</tr>
+</tbody>
+</table>
 
 -   
 
@@ -2089,83 +2506,90 @@ Bảng .: Đặc tả Use case CRUD mã giảm giá của người quản trị
 
 Bảng .: Đặc tả Use Case CRUD vai trò của người dùng
 
-+----+--------------+-------------------------------------------------+
-| S  | Tên UseCase  | CRUD vai trò của người dùng                     |
-| TT |              |                                                 |
-+====+==============+=================================================+
-| 1  | Mô tả        | Là người quản trị, tôi muốn quản lý vai trò của |
-|    |              | người dùng                                      |
-+----+--------------+-------------------------------------------------+
-| 2  | Tác nhân     | Người quản trị                                  |
-+----+--------------+-------------------------------------------------+
-| 3  | Mức độ ưu    | Bắt buộc có                                     |
-|    | tiên         |                                                 |
-+----+--------------+-------------------------------------------------+
-| 4  | Điều kiện    | Khi người quản trị truy cập trang web cho người |
-|    | kích hoạt    | quản trị và nhấn vào tính năng chỉnh sửa mã     |
-|    |              | giảm giá                                        |
-+----+--------------+-------------------------------------------------+
-| 5  | Điều kiện    | Thiết bị của người quản trị đang kết nối        |
-|    | cần          | internet                                        |
-|    |              |                                                 |
-|    |              | Người quản trị đã truy cập web                  |
-|    |              |                                                 |
-|    |              | Người quản trị đã đăng nhập                     |
-+----+--------------+-------------------------------------------------+
-| 6  | Những thứ    | Vai trò của người dùng được thay đổi thành công |
-|    | xuất hiện    |                                                 |
-|    | sau          |                                                 |
-+----+--------------+-------------------------------------------------+
-| 7  | Luồng sự     | 1\. Người quản trị truy cập ứng dụng            |
-|    | kiện chính   |                                                 |
-|    |              | 2\. Người quản trị nhấn vào chức năng quản lý   |
-|    |              | người dùng                                      |
-|    |              |                                                 |
-|    |              | 3\. Hệ thống thực hiện lấy dữ liệu              |
-|    |              |                                                 |
-|    |              | 4\. Hệ thống hiển thị trang web quản lý người   |
-|    |              | dùng                                            |
-|    |              |                                                 |
-|    |              | 5\. Người quản trị nhấn vào chức năng chỉnh sửa |
-|    |              | vai trò của người dùng tại giao diện quản lý    |
-|    |              |                                                 |
-|    |              | 6\. Người quản trị nhập dữ liệu vào các trường  |
-|    |              | trên form nhập dữ liệu                          |
-|    |              |                                                 |
-|    |              | 7\. Người quản trị nhấn nút đồng ý              |
-|    |              |                                                 |
-|    |              | 8\. Hệ thống thực hiện yêu cầu                  |
-|    |              |                                                 |
-|    |              | 9\. Hệ thống hiển thị thông báo kết quả         |
-+----+--------------+-------------------------------------------------+
-| 8  | Luồng sự     | 5a. Người quản trị nhấn chức năng thêm vai trò  |
-|    | kiện thay    | của người dùng                                  |
-|    | thế          |                                                 |
-|    |              | 5a1. Người quản trị nhấn nút thêm vai trò       |
-|    |              |                                                 |
-|    |              | 5a2. Hệ thống hiển thị form                     |
-|    |              |                                                 |
-|    |              | 5a3. Người dùng nhập vào dữ liệu tại các trường |
-|    |              |                                                 |
-|    |              | 5a4. Người dùng nhấn nút đồng ý                 |
-|    |              |                                                 |
-|    |              | 5a5. Hệ thống thực hiện và hiển thị thông báo   |
-|    |              |                                                 |
-|    |              | 5a4a. Người quản trị nhấn nút thoát             |
-|    |              |                                                 |
-|    |              | 5a4a1. Dữ liệu bị huỷ, hệ thống chuyển trang về |
-|    |              | trang trước                                     |
-|    |              |                                                 |
-|    |              | 7b. Người quản trị nhấn nút thoát               |
-+----+--------------+-------------------------------------------------+
-| 9  | Luồng ngoại  | 7c, 5a4a. Trường dữ liệu nhập không đúng định   |
-|    | lệ           | dạng                                            |
-|    |              |                                                 |
-|    |              | 7d1, 5a4a1. Hiển thị thông báo lỗi              |
-|    |              |                                                 |
-|    |              | 1e. Tài khoản không được cấp quyền quản trị     |
-|    |              | viên                                            |
-+----+--------------+-------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 22%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>CRUD vai trò của người dùng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người quản trị, tôi muốn quản lý vai trò của người dùng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người quản trị</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người quản trị truy cập trang web cho người quản trị và nhấn vào
+tính năng chỉnh sửa mã giảm giá</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người quản trị đang kết nối internet</p>
+<p>Người quản trị đã truy cập web</p>
+<p>Người quản trị đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Vai trò của người dùng được thay đổi thành công</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người quản trị truy cập ứng dụng</p>
+<p>2. Người quản trị nhấn vào chức năng quản lý người dùng</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu</p>
+<p>4. Hệ thống hiển thị trang web quản lý người dùng</p>
+<p>5. Người quản trị nhấn vào chức năng chỉnh sửa vai trò của người dùng
+tại giao diện quản lý</p>
+<p>6. Người quản trị nhập dữ liệu vào các trường trên form nhập dữ
+liệu</p>
+<p>7. Người quản trị nhấn nút đồng ý</p>
+<p>8. Hệ thống thực hiện yêu cầu</p>
+<p>9. Hệ thống hiển thị thông báo kết quả</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td><p>5a. Người quản trị nhấn chức năng thêm vai trò của người dùng</p>
+<p>5a1. Người quản trị nhấn nút thêm vai trò</p>
+<p>5a2. Hệ thống hiển thị form</p>
+<p>5a3. Người dùng nhập vào dữ liệu tại các trường</p>
+<p>5a4. Người dùng nhấn nút đồng ý</p>
+<p>5a5. Hệ thống thực hiện và hiển thị thông báo</p>
+<p>5a4a. Người quản trị nhấn nút thoát</p>
+<p>5a4a1. Dữ liệu bị huỷ, hệ thống chuyển trang về trang trước</p>
+<p>7b. Người quản trị nhấn nút thoát</p></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>7c, 5a4a. Trường dữ liệu nhập không đúng định dạng</p>
+<p>7d1, 5a4a1. Hiển thị thông báo lỗi</p>
+<p>1e. Tài khoản không được cấp quyền quản trị viên</p></td>
+</tr>
+</tbody>
+</table>
 
 ### Nhóm UseCase Admin
 
@@ -2173,152 +2597,223 @@ Bảng .: Đặc tả Use Case CRUD vai trò của người dùng
 
 Bảng .: Đặc tả Use Case quản lý ứng dụng
 
-+----+--------------+--------------------------------------------------+
-| S  | Tên UseCase  | Quản lý ứng dụng                                 |
-| TT |              |                                                  |
-+====+==============+==================================================+
-| 1  | Mô tả        | Là người quản trị viên, tôi muốn quản lý ứng     |
-|    |              | dụng                                             |
-+----+--------------+--------------------------------------------------+
-| 2  | Tác nhân     | Người quản trị viên                              |
-+----+--------------+--------------------------------------------------+
-| 3  | Mức độ ưu    | Bắt buộc có                                      |
-|    | tiên         |                                                  |
-+----+--------------+--------------------------------------------------+
-| 4  | Điều kiện    | Khi người quản trị viên truy cập trang web cho   |
-|    | kích hoạt    | người quản trị viên và nhấn vào tính năng quản   |
-|    |              | lý ứng dụng                                      |
-+----+--------------+--------------------------------------------------+
-| 5  | Điều kiện    | Thiết bị của người quản trị đang kết nối         |
-|    | cần          | internet                                         |
-|    |              |                                                  |
-|    |              | Người quản trị đã truy cập web                   |
-|    |              |                                                  |
-|    |              | Người quản trị đã đăng nhập                      |
-+----+--------------+--------------------------------------------------+
-| 6  | Những thứ    | Giao diện quản lý ứng dụng được hiển thị         |
-|    | xuất hiện    |                                                  |
-|    | sau          |                                                  |
-+----+--------------+--------------------------------------------------+
-| 7  | Luồng sự     | 1\. Người quản trị truy cập ứng dụng             |
-|    | kiện chính   |                                                  |
-|    |              | 2\. Người quản trị nhấn vào chức năng quản lý    |
-|    |              | ứng dụng                                         |
-|    |              |                                                  |
-|    |              | 3\. Hệ thống hiển thị trang web quản lý ứng dụng |
-+----+--------------+--------------------------------------------------+
-| 8  | Luồng sự     | Không                                            |
-|    | kiện thay    |                                                  |
-|    | thế          |                                                  |
-+----+--------------+--------------------------------------------------+
-| 9  | Luồng ngoại  | 2a. Tài khoản không có quyền quản trị            |
-|    | lệ           |                                                  |
-|    |              | *Use Case tiếp tục thực hiện Use Case xác thực   |
-|    |              | người dùng*                                      |
-+----+--------------+--------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 21%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Quản lý ứng dụng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người quản trị viên, tôi muốn quản lý ứng dụng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người quản trị viên</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người quản trị viên truy cập trang web cho người quản trị viên
+và nhấn vào tính năng quản lý ứng dụng</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người quản trị đang kết nối internet</p>
+<p>Người quản trị đã truy cập web</p>
+<p>Người quản trị đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Giao diện quản lý ứng dụng được hiển thị</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người quản trị truy cập ứng dụng</p>
+<p>2. Người quản trị nhấn vào chức năng quản lý ứng dụng</p>
+<p>3. Hệ thống hiển thị trang web quản lý ứng dụng</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td>Không</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>2a. Tài khoản không có quyền quản trị</p>
+<p><em>Use Case tiếp tục thực hiện Use Case xác thực người
+dùng</em></p></td>
+</tr>
+</tbody>
+</table>
 
 -   Xóa hoặc cấm người dùng:
 
 Bảng .: Đặc tả Use Case xóa hoặc cấm người dùng
 
-+----+---------------+-------------------------------------------------+
-| S  | Tên UseCase   | CRUD vai trò của người dùng                     |
-| TT |               |                                                 |
-+====+===============+=================================================+
-| 1  | Mô tả         | Là người quản trị, tôi muốn xóa người dùng      |
-+----+---------------+-------------------------------------------------+
-| 2  | Tác nhân      | Người quản trị                                  |
-+----+---------------+-------------------------------------------------+
-| 3  | Mức độ ưu     | Bắt buộc có                                     |
-|    | tiên          |                                                 |
-+----+---------------+-------------------------------------------------+
-| 4  | Điều kiện     | Khi người quản trị truy cập trang web cho người |
-|    | kích hoạt     | quản trị và nhấn vào tính năng xóa người dùng   |
-+----+---------------+-------------------------------------------------+
-| 5  | Điều kiện cần | Thiết bị của người quản trị đang kết nối        |
-|    |               | internet                                        |
-|    |               |                                                 |
-|    |               | Người quản trị đã truy cập web                  |
-|    |               |                                                 |
-|    |               | Người quản trị đã đăng nhập                     |
-+----+---------------+-------------------------------------------------+
-| 6  | Những thứ     | Người dùng bị xóa hoặc cấm thành công           |
-|    | xuất hiện sau |                                                 |
-+----+---------------+-------------------------------------------------+
-| 7  | Luồng sự kiện | 1\. Người quản trị truy cập ứng dụng            |
-|    | chính         |                                                 |
-|    |               | 2\. Người quản trị nhấn vào chức năng quản lý   |
-|    |               | người dùng                                      |
-|    |               |                                                 |
-|    |               | 3\. Hệ thống thực hiện lấy dữ liệu              |
-|    |               |                                                 |
-|    |               | 4\. Hệ thống hiển thị trang web quản lý người   |
-|    |               | dùng                                            |
-|    |               |                                                 |
-|    |               | 5\. Người quản trị nhấn nút thùng rác tại danh  |
-|    |               | sách người dùng                                 |
-|    |               |                                                 |
-|    |               | 6\. Người quản trị nhấn nút đồng ý              |
-|    |               |                                                 |
-|    |               | 7\. Hệ thống thực hiện yêu cầu                  |
-|    |               |                                                 |
-|    |               | 8\. Hệ thống hiển thị thông báo kết quả         |
-+----+---------------+-------------------------------------------------+
-| 8  | Luồng sự kiện | Không                                           |
-|    | thay thế      |                                                 |
-+----+---------------+-------------------------------------------------+
-| 9  | Luồng ngoại   | 1b. Tài khoản không được cấp quyền quản trị     |
-|    | lệ            | viên                                            |
-+----+---------------+-------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 22%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>CRUD vai trò của người dùng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người quản trị, tôi muốn xóa người dùng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người quản trị</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người quản trị truy cập trang web cho người quản trị và nhấn vào
+tính năng xóa người dùng</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người quản trị đang kết nối internet</p>
+<p>Người quản trị đã truy cập web</p>
+<p>Người quản trị đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Người dùng bị xóa hoặc cấm thành công</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người quản trị truy cập ứng dụng</p>
+<p>2. Người quản trị nhấn vào chức năng quản lý người dùng</p>
+<p>3. Hệ thống thực hiện lấy dữ liệu</p>
+<p>4. Hệ thống hiển thị trang web quản lý người dùng</p>
+<p>5. Người quản trị nhấn nút thùng rác tại danh sách người dùng</p>
+<p>6. Người quản trị nhấn nút đồng ý</p>
+<p>7. Hệ thống thực hiện yêu cầu</p>
+<p>8. Hệ thống hiển thị thông báo kết quả</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td>Không</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td>1b. Tài khoản không được cấp quyền quản trị viên</td>
+</tr>
+</tbody>
+</table>
 
 -   Quản lý người dùng:
 
 Bảng .: Đặc tả Use Case quản lý người dùng
 
-+----+--------------+--------------------------------------------------+
-| S  | Tên UseCase  | Quản lý người dùng                               |
-| TT |              |                                                  |
-+====+==============+==================================================+
-| 1  | Mô tả        | Là người quản trị viên, tôi muốn quản lý người   |
-|    |              | dùng                                             |
-+----+--------------+--------------------------------------------------+
-| 2  | Tác nhân     | Người quản trị viên                              |
-+----+--------------+--------------------------------------------------+
-| 3  | Mức độ ưu    | Bắt buộc có                                      |
-|    | tiên         |                                                  |
-+----+--------------+--------------------------------------------------+
-| 4  | Điều kiện    | Khi người bán hàng truy cập trang web cho người  |
-|    | kích hoạt    | quản trị viên và nhấn vào tính năng quản lý      |
-|    |              | người dùng                                       |
-+----+--------------+--------------------------------------------------+
-| 5  | Điều kiện    | Thiết bị của người quản trị đang kết nối         |
-|    | cần          | internet                                         |
-|    |              |                                                  |
-|    |              | Người quản trị đã truy cập web                   |
-|    |              |                                                  |
-|    |              | Người quản trị đã đăng nhập                      |
-+----+--------------+--------------------------------------------------+
-| 6  | Những thứ    | Giao diện quản lý người dùng được hiển thị       |
-|    | xuất hiện    |                                                  |
-|    | sau          |                                                  |
-+----+--------------+--------------------------------------------------+
-| 7  | Luồng sự     | 1\. Người quản trị truy cập ứng dụng             |
-|    | kiện chính   |                                                  |
-|    |              | 2\. Người quản trị nhấn vào chức năng quản lý    |
-|    |              | người dùng                                       |
-|    |              |                                                  |
-|    |              | 3\. Hệ thống hiển thị trang web quản lý người    |
-|    |              | dùng                                             |
-+----+--------------+--------------------------------------------------+
-| 8  | Luồng sự     | Không                                            |
-|    | kiện thay    |                                                  |
-|    | thế          |                                                  |
-+----+--------------+--------------------------------------------------+
-| 9  | Luồng ngoại  | 2a. Tài khoản không có quyền quản trị            |
-|    | lệ           |                                                  |
-|    |              | *Use Case tiếp tục thực hiện Use Case xác thực   |
-|    |              | người dùng*                                      |
-+----+--------------+--------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 21%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên UseCase</th>
+<th>Quản lý người dùng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là người quản trị viên, tôi muốn quản lý người dùng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tác nhân</td>
+<td>Người quản trị viên</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Mức độ ưu tiên</td>
+<td>Bắt buộc có</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Điều kiện kích hoạt</td>
+<td>Khi người bán hàng truy cập trang web cho người quản trị viên và
+nhấn vào tính năng quản lý người dùng</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Điều kiện cần</td>
+<td><p>Thiết bị của người quản trị đang kết nối internet</p>
+<p>Người quản trị đã truy cập web</p>
+<p>Người quản trị đã đăng nhập</p></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Những thứ xuất hiện sau</td>
+<td>Giao diện quản lý người dùng được hiển thị</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Luồng sự kiện chính</td>
+<td><p>1. Người quản trị truy cập ứng dụng</p>
+<p>2. Người quản trị nhấn vào chức năng quản lý người dùng</p>
+<p>3. Hệ thống hiển thị trang web quản lý người dùng</p></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Luồng sự kiện thay thế</td>
+<td>Không</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Luồng ngoại lệ</td>
+<td><p>2a. Tài khoản không có quyền quản trị</p>
+<p><em>Use Case tiếp tục thực hiện Use Case xác thực người
+dùng</em></p></td>
+</tr>
+</tbody>
+</table>
 
 1.  Sơ đồ tuần tự
 
@@ -2814,431 +3309,585 @@ Hình .: Lược đồ cơ sở dữ liệu
 
 Bảng .: Mô tả bảng User
 
-+----+---------+------------------------------------------------------+
-| S  | Tên     | User                                                 |
-| TT | Bảng    |                                                      |
-+====+=========+======================================================+
-| 1  | Mô tả   | Là bảng dùng để lưu trữ dữ liệu của người dùng       |
-+----+---------+------------------------------------------------------+
-| 2  | Các     | \- ID: Mã định danh lưu dưới dạng String             |
-|    | thành   |                                                      |
-|    | phần    | \- UserName: Tên người dùng lưu dưới dạng String     |
-|    |         |                                                      |
-|    |         | \- Password: Mật khẩu người dùng lưu dưới dạng       |
-|    |         | String                                               |
-|    |         |                                                      |
-|    |         | \- Register_Date: Ngày đăng ký lưu với dạng Date     |
-|    |         |                                                      |
-|    |         | \- UserRole: Là khóa ngoại tham chiếu đến bảng Role, |
-|    |         | xác định vai trò của người dùng                      |
-|    |         |                                                      |
-|    |         | \- UserAddress: Địa chỉ của người dùng, lưu dưới     |
-|    |         | dạng String                                          |
-|    |         |                                                      |
-|    |         | \- UserData: Thông tin người dùng, được lưu dưới     |
-|    |         | dạng Map\<String, String\>                           |
-|    |         |                                                      |
-|    |         | \- FavoriteItem: Sản phẩm ưu thích của người dùng,   |
-|    |         | chứa các mã - ID của sản phẩm, được lưu dưới dạng    |
-|    |         | List\<String\>                                       |
-|    |         |                                                      |
-|    |         | \- OrderID: Khoá ngoại, tham chiếu đến bảng Order,   |
-|    |         | lưu dưới dạng List\<String\>                         |
-|    |         |                                                      |
-|    |         | \- PhoneNumber: Số điện thoại của người dùng, được   |
-|    |         | lưu dưới dạng String                                 |
-+----+---------+------------------------------------------------------+
-| 3  | Các mối | \- Mối quan hệ 1..1: Cart                            |
-|    | quan hệ |                                                      |
-|    |         | \- Mối quan hệ 1..n: Order, ChatData                 |
-|    |         |                                                      |
-|    |         | \- Mối quan hệ n..1: Shop                            |
-|    |         |                                                      |
-|    |         | \- Mối quan hệ n..n: Role                            |
-+----+---------+------------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 15%" />
+<col style="width: 77%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên Bảng</th>
+<th>User</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là bảng dùng để lưu trữ dữ liệu của người dùng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Các thành phần</td>
+<td><p>- ID: Mã định danh lưu dưới dạng String</p>
+<p>- UserName: Tên người dùng lưu dưới dạng String</p>
+<p>- Password: Mật khẩu người dùng lưu dưới dạng String</p>
+<p>- Register_Date: Ngày đăng ký lưu với dạng Date</p>
+<p>- UserRole: Là khóa ngoại tham chiếu đến bảng Role, xác định vai trò
+của người dùng</p>
+<p>- UserAddress: Địa chỉ của người dùng, lưu dưới dạng String</p>
+<p>- UserData: Thông tin người dùng, được lưu dưới dạng Map&lt;String,
+String&gt;</p>
+<p>- FavoriteItem: Sản phẩm ưu thích của người dùng, chứa các mã - ID
+của sản phẩm, được lưu dưới dạng List&lt;String&gt;</p>
+<p>- OrderID: Khoá ngoại, tham chiếu đến bảng Order, lưu dưới dạng
+List&lt;String&gt;</p>
+<p>- PhoneNumber: Số điện thoại của người dùng, được lưu dưới dạng
+String</p></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Các mối quan hệ</td>
+<td><p>- Mối quan hệ 1..1: Cart</p>
+<p>- Mối quan hệ 1..n: Order, ChatData</p>
+<p>- Mối quan hệ n..1: Shop</p>
+<p>- Mối quan hệ n..n: Role</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Bảng Cart:
 
 Bảng .: Mô tả bảng Cart
 
-+----+-----------+----------------------------------------------------+
-| S  | Tên Bảng  | Cart                                               |
-| TT |           |                                                    |
-+====+===========+====================================================+
-| 1  | Mô tả     | Là bảng dùng để lưu trữ dữ liệu giỏ hàng của người |
-|    |           | dùng                                               |
-+----+-----------+----------------------------------------------------+
-| 2  | Các thành | \- ID: Mã định danh lưu dưới dạng String           |
-|    | phần      |                                                    |
-|    |           | \- Product: Khoá ngoại tham chiếu đến bảng         |
-|    |           | Product, lưu trữ dưới dạng List\<String\>          |
-|    |           |                                                    |
-|    |           | \- TotalPrice: Tổng thành tiền của giỏ, lưu trữ    |
-|    |           | dưới dạng Numeric                                  |
-+----+-----------+----------------------------------------------------+
-| 3  | Các mối   | Mối quan hệ 1..1: User                             |
-|    | quan hệ   |                                                    |
-+----+-----------+----------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 17%" />
+<col style="width: 74%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên Bảng</th>
+<th>Cart</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là bảng dùng để lưu trữ dữ liệu giỏ hàng của người dùng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Các thành phần</td>
+<td><p>- ID: Mã định danh lưu dưới dạng String</p>
+<p>- Product: Khoá ngoại tham chiếu đến bảng Product, lưu trữ dưới dạng
+List&lt;String&gt;</p>
+<p>- TotalPrice: Tổng thành tiền của giỏ, lưu trữ dưới dạng
+Numeric</p></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Các mối quan hệ</td>
+<td>Mối quan hệ 1..1: User</td>
+</tr>
+</tbody>
+</table>
 
 -   Bảng Shop:
 
 Bảng .: Mô tả bảng Shop
 
-+----+-----------+-----------------------------------------------------+
-| S  | Tên Bảng  | Shop                                                |
-| TT |           |                                                     |
-+====+===========+=====================================================+
-| 1  | Mô tả     | Là bảng dùng để lưu trữ dữ liệu của cửa hàng người  |
-|    |           | dùng                                                |
-+----+-----------+-----------------------------------------------------+
-| 2  | Các thành | \- ID: Mã định danh lưu dưới dạng String            |
-|    | phần      |                                                     |
-|    |           | \- ShopName: Tên Shop lưu dưới dạng String          |
-|    |           |                                                     |
-|    |           | \- Member: Gồm danh sách mã các thành viên lưu dưới |
-|    |           | dạng List\<String\>                                 |
-|    |           |                                                     |
-|    |           | \- Product: Gồm danh sách mã các sản phẩm lưu dưới  |
-|    |           | dạng List\<String\>                                 |
-|    |           |                                                     |
-|    |           | \- PendingProduct: Gồm danh sách mã các sản phẩm    |
-|    |           | đang đợi lưu dưới dạng List\<String\>               |
-|    |           |                                                     |
-|    |           | \- ProductSold: Gồm danh sách mã các sản phẩm đã    |
-|    |           | được bán lưu dưới dạng List\<String\>               |
-|    |           |                                                     |
-|    |           | \- Voucher: Gồm danh sách mã các voucher lưu dưới   |
-|    |           | dạng List\<String\>                                 |
-|    |           |                                                     |
-|    |           | \- Address: Địa chỉ nhận hàng, lưu dưới dạng String |
-|    |           |                                                     |
-|    |           | \- PhoneNumber: Số điện thoại của Shop, lưu dưới    |
-|    |           | dạng String                                         |
-+----+-----------+-----------------------------------------------------+
-| 3  | Các mối   | \- Mối quan hệ 1..1: Không                          |
-|    | quan hệ   |                                                     |
-|    |           | \- Mối quan hệ 1..n: User, Product, Order, Voucher  |
-|    |           |                                                     |
-|    |           | \- Mối quan hệ n..1: Không                          |
-|    |           |                                                     |
-|    |           | \- Mối quan hệ n..n: Không                          |
-+----+-----------+-----------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 17%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên Bảng</th>
+<th>Shop</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là bảng dùng để lưu trữ dữ liệu của cửa hàng người dùng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Các thành phần</td>
+<td><p>- ID: Mã định danh lưu dưới dạng String</p>
+<p>- ShopName: Tên Shop lưu dưới dạng String</p>
+<p>- Member: Gồm danh sách mã các thành viên lưu dưới dạng
+List&lt;String&gt;</p>
+<p>- Product: Gồm danh sách mã các sản phẩm lưu dưới dạng
+List&lt;String&gt;</p>
+<p>- PendingProduct: Gồm danh sách mã các sản phẩm đang đợi lưu dưới
+dạng List&lt;String&gt;</p>
+<p>- ProductSold: Gồm danh sách mã các sản phẩm đã được bán lưu dưới
+dạng List&lt;String&gt;</p>
+<p>- Voucher: Gồm danh sách mã các voucher lưu dưới dạng
+List&lt;String&gt;</p>
+<p>- Address: Địa chỉ nhận hàng, lưu dưới dạng String</p>
+<p>- PhoneNumber: Số điện thoại của Shop, lưu dưới dạng String</p></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Các mối quan hệ</td>
+<td><p>- Mối quan hệ 1..1: Không</p>
+<p>- Mối quan hệ 1..n: User, Product, Order, Voucher</p>
+<p>- Mối quan hệ n..1: Không</p>
+<p>- Mối quan hệ n..n: Không</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Bảng Order:
 
 Bảng .: Mô tả bảng Order
 
-+----+------------+---------------------------------------------------+
-| S  | Tên Bảng   | Order                                             |
-| TT |            |                                                   |
-+====+============+===================================================+
-| 1  | Mô tả      | Là bảng dùng để lưu trữ dữ liệu đặt hàng của      |
-|    |            | người dùng                                        |
-+----+------------+---------------------------------------------------+
-| 2  | Các thành  | \- ID: Mã định danh lưu dưới dạng String          |
-|    | phần       |                                                   |
-|    |            | \- IDShop: Mã định danh shop lưu dưới dạng String |
-|    |            |                                                   |
-|    |            | \- IDCustomer: Mã định danh người đặt hàng lưu    |
-|    |            | dưới dạng String                                  |
-|    |            |                                                   |
-|    |            | \- OrderDetail: Khoá ngoại tham chiếu đến bảng    |
-|    |            | OrderDetail List\<String\>                        |
-|    |            |                                                   |
-|    |            | \- ShipAdress: Địa chỉ Ship hàng lưu dưới dạng    |
-|    |            | String                                            |
-|    |            |                                                   |
-|    |            | \- PhoneNumber: Số điện thoại khách hàng lưu dưới |
-|    |            | dạng String                                       |
-+----+------------+---------------------------------------------------+
-| 3  | Các mối    | Mối quan hệ 1..1: OrderDetail                     |
-|    | quan hệ    |                                                   |
-|    |            | Mối quan hệ 1..n: OrderDetail                     |
-|    |            |                                                   |
-|    |            | Mối quan hệ n..1: User, Shop                      |
-|    |            |                                                   |
-|    |            | Mối quan hệ n..n: Không                           |
-+----+------------+---------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 19%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên Bảng</th>
+<th>Order</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là bảng dùng để lưu trữ dữ liệu đặt hàng của người dùng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Các thành phần</td>
+<td><p>- ID: Mã định danh lưu dưới dạng String</p>
+<p>- IDShop: Mã định danh shop lưu dưới dạng String</p>
+<p>- IDCustomer: Mã định danh người đặt hàng lưu dưới dạng String</p>
+<p>- OrderDetail: Khoá ngoại tham chiếu đến bảng OrderDetail
+List&lt;String&gt;</p>
+<p>- ShipAdress: Địa chỉ Ship hàng lưu dưới dạng String</p>
+<p>- PhoneNumber: Số điện thoại khách hàng lưu dưới dạng String</p></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Các mối quan hệ</td>
+<td><p>Mối quan hệ 1..1: OrderDetail</p>
+<p>Mối quan hệ 1..n: OrderDetail</p>
+<p>Mối quan hệ n..1: User, Shop</p>
+<p>Mối quan hệ n..n: Không</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Bảng OrderDetails:
 
 Bảng .: Mô tả bảng OrderDetails
 
-+----+------------+----------------------------------------------------+
-| S  | Tên Bảng   | OrderDetails                                       |
-| TT |            |                                                    |
-+====+============+====================================================+
-| 1  | Mô tả      | Là bảng dùng để lưu trữ chi tiết đơn đặt hàng của  |
-|    |            | người dùng                                         |
-+----+------------+----------------------------------------------------+
-| 2  | Các thành  | \- ID: Mã định danh lưu dưới dạng String           |
-|    | phần       |                                                    |
-|    |            | \- Quantity: Mã định danh shop lưu dưới dạng Int   |
-|    |            |                                                    |
-|    |            | \- Variation: Kiểu sản phẩm lưu dưới dạng phẩm     |
-|    |            | String                                             |
-|    |            |                                                    |
-|    |            | \- ProductID: Khoá ngoại tham chiếu đến bảng       |
-|    |            | Product, lưu dưới dạng String                      |
-+----+------------+----------------------------------------------------+
-| 3  | Các mối    | Mối quan hệ 1..1: Product                          |
-|    | quan hệ    |                                                    |
-|    |            | Mối quan hệ 1..n: Không                            |
-|    |            |                                                    |
-|    |            | Mối quan hệ n..1: Order                            |
-|    |            |                                                    |
-|    |            | Mối quan hệ n..n: Không                            |
-+----+------------+----------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 18%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên Bảng</th>
+<th>OrderDetails</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là bảng dùng để lưu trữ chi tiết đơn đặt hàng của người dùng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Các thành phần</td>
+<td><p>- ID: Mã định danh lưu dưới dạng String</p>
+<p>- Quantity: Mã định danh shop lưu dưới dạng Int</p>
+<p>- Variation: Kiểu sản phẩm lưu dưới dạng phẩm String</p>
+<p>- ProductID: Khoá ngoại tham chiếu đến bảng Product, lưu dưới dạng
+String</p></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Các mối quan hệ</td>
+<td><p>Mối quan hệ 1..1: Product</p>
+<p>Mối quan hệ 1..n: Không</p>
+<p>Mối quan hệ n..1: Order</p>
+<p>Mối quan hệ n..n: Không</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Bảng ChatData:
 
 Bảng .: Mô tả bảng ChatData
 
-+----+---------+------------------------------------------------------+
-| S  | Tên     | ChatData                                             |
-| TT | Bảng    |                                                      |
-+====+=========+======================================================+
-| 1  | Mô tả   | Là bảng dùng để lưu trữ chi tiết đơn đặt hàng của    |
-|    |         | người dùng                                           |
-+----+---------+------------------------------------------------------+
-| 2  | Các     | \- ID: Mã định danh lưu dưới dạng String             |
-|    | thành   |                                                      |
-|    | phần    | \- DateCreate: Ngày tạo lưu dưới dạng Date           |
-|    |         |                                                      |
-|    |         | \- IDUser: Khoá ngoại tham chiếu đến bảng User, lưu  |
-|    |         | dưới dạng String: Kiểu sản phẩm lưu dưới dạng phẩm   |
-|    |         | String                                               |
-|    |         |                                                      |
-|    |         | \- IDShop: Khoá ngoại tham chiếu đến bảng Shop, lưu  |
-|    |         | dưới dạng String                                     |
-|    |         |                                                      |
-|    |         | \- Data: Dữ liệu lưu dưới dạng List\<Map\<String,    |
-|    |         | Date\>\>                                             |
-+----+---------+------------------------------------------------------+
-| 3  | Các mối | Mối quan hệ 1..1: Không                              |
-|    | quan hệ |                                                      |
-|    |         | Mối quan hệ 1..n: Không                              |
-|    |         |                                                      |
-|    |         | Mối quan hệ n..1: User, Shop                         |
-|    |         |                                                      |
-|    |         | Mối quan hệ n..n: Không                              |
-+----+---------+------------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 15%" />
+<col style="width: 77%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên Bảng</th>
+<th>ChatData</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là bảng dùng để lưu trữ chi tiết đơn đặt hàng của người dùng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Các thành phần</td>
+<td><p>- ID: Mã định danh lưu dưới dạng String</p>
+<p>- DateCreate: Ngày tạo lưu dưới dạng Date</p>
+<p>- IDUser: Khoá ngoại tham chiếu đến bảng User, lưu dưới dạng String:
+Kiểu sản phẩm lưu dưới dạng phẩm String</p>
+<p>- IDShop: Khoá ngoại tham chiếu đến bảng Shop, lưu dưới dạng
+String</p>
+<p>- Data: Dữ liệu lưu dưới dạng List&lt;Map&lt;String,
+Date&gt;&gt;</p></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Các mối quan hệ</td>
+<td><p>Mối quan hệ 1..1: Không</p>
+<p>Mối quan hệ 1..n: Không</p>
+<p>Mối quan hệ n..1: User, Shop</p>
+<p>Mối quan hệ n..n: Không</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Bảng Role:
 
 Bảng .: Mô tả bảng Role
 
-+----+---------+------------------------------------------------------+
-| S  | Tên     | Role                                                 |
-| TT | Bảng    |                                                      |
-+====+=========+======================================================+
-| 1  | Mô tả   | Là bảng dùng để lưu trữ vai trò của người dùng       |
-+----+---------+------------------------------------------------------+
-| 2  | Các     | \- ID: Mã định danh lưu dưới dạng String             |
-|    | thành   |                                                      |
-|    | phần    | \- Name: Tên của vai trò lưu dưới dạng String        |
-|    |         |                                                      |
-|    |         | \- IDUser: Khoá ngoại tham chiếu đến bảng User, lưu  |
-|    |         | dưới dạng String: Kiểu sản phẩm lưu dưới dạng phẩm   |
-|    |         | String                                               |
-|    |         |                                                      |
-|    |         | \- Permissions: List\<String\>: Quyền hạn của người  |
-|    |         | dùng, lưu dưới dạng List\<String\>                   |
-+----+---------+------------------------------------------------------+
-| 3  | Các mối | Mối quan hệ 1..1: Không                              |
-|    | quan hệ |                                                      |
-|    |         | Mối quan hệ 1..n: Không                              |
-|    |         |                                                      |
-|    |         | Mối quan hệ n..1: Không                              |
-|    |         |                                                      |
-|    |         | Mối quan hệ n..n: User                               |
-+----+---------+------------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 15%" />
+<col style="width: 77%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên Bảng</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là bảng dùng để lưu trữ vai trò của người dùng</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Các thành phần</td>
+<td><p>- ID: Mã định danh lưu dưới dạng String</p>
+<p>- Name: Tên của vai trò lưu dưới dạng String</p>
+<p>- IDUser: Khoá ngoại tham chiếu đến bảng User, lưu dưới dạng String:
+Kiểu sản phẩm lưu dưới dạng phẩm String</p>
+<p>- Permissions: List&lt;String&gt;: Quyền hạn của người dùng, lưu dưới
+dạng List&lt;String&gt;</p></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Các mối quan hệ</td>
+<td><p>Mối quan hệ 1..1: Không</p>
+<p>Mối quan hệ 1..n: Không</p>
+<p>Mối quan hệ n..1: Không</p>
+<p>Mối quan hệ n..n: User</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Bảng Voucher:
 
 Bảng .: Mô tả bảng Voucher
 
-+----+-------------+---------------------------------------------------+
-| S  | Tên Bảng    | Voucher                                           |
-| TT |             |                                                   |
-+====+=============+===================================================+
-| 1  | Mô tả       | Là bảng dùng để lưu trữ mã giảm giá               |
-+----+-------------+---------------------------------------------------+
-| 2  | Các thành   | \- ID: Mã định danh lưu dưới dạng String          |
-|    | phần        |                                                   |
-|    |             | \- VoucherDesc: Miêu tả của Voucher, lưu dưới     |
-|    |             | dạng String                                       |
-|    |             |                                                   |
-|    |             | \- VoucherBeginDay: Ngày Voucher có hiệu lực, lưu |
-|    |             | dưới dạng Date                                    |
-|    |             |                                                   |
-|    |             | \- VoucherExpire: Ngày Voucher hết hạn, lưu dưới  |
-|    |             | dạng Date                                         |
-|    |             |                                                   |
-|    |             | \- ApplicableProd: Danh sách áp dụng, lưu dưới    |
-|    |             | dạng List\<String\>                               |
-+----+-------------+---------------------------------------------------+
-| 3  | Các mối     | Mối quan hệ 1..1: Không                           |
-|    | quan hệ     |                                                   |
-|    |             | Mối quan hệ 1..n: Không                           |
-|    |             |                                                   |
-|    |             | Mối quan hệ n..1: Shop                            |
-|    |             |                                                   |
-|    |             | Mối quan hệ n..n: Không                           |
-+----+-------------+---------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 19%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên Bảng</th>
+<th>Voucher</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là bảng dùng để lưu trữ mã giảm giá</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Các thành phần</td>
+<td><p>- ID: Mã định danh lưu dưới dạng String</p>
+<p>- VoucherDesc: Miêu tả của Voucher, lưu dưới dạng String</p>
+<p>- VoucherBeginDay: Ngày Voucher có hiệu lực, lưu dưới dạng Date</p>
+<p>- VoucherExpire: Ngày Voucher hết hạn, lưu dưới dạng Date</p>
+<p>- ApplicableProd: Danh sách áp dụng, lưu dưới dạng
+List&lt;String&gt;</p></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Các mối quan hệ</td>
+<td><p>Mối quan hệ 1..1: Không</p>
+<p>Mối quan hệ 1..n: Không</p>
+<p>Mối quan hệ n..1: Shop</p>
+<p>Mối quan hệ n..n: Không</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Bảng Product:
 
 Bảng .: Mô tả bảng Product
 
-+----+-----------+-----------------------------------------------------+
-| S  | Tên Bảng  | Product                                             |
-| TT |           |                                                     |
-+====+===========+=====================================================+
-| 1  | Mô tả     | Là bảng dùng để lưu trữ sản phẩm                    |
-+----+-----------+-----------------------------------------------------+
-| 2  | Các thành | \- ID: Mã định danh lưu dưới dạng String            |
-|    | phần      |                                                     |
-|    |           | \- ProductName: Tên của sản phẩm, lưu dưới dạng     |
-|    |           | String                                              |
-|    |           |                                                     |
-|    |           | \- ProductPrice: Giá của sản phẩm, lưu dưới dạng    |
-|    |           | String                                              |
-|    |           |                                                     |
-|    |           | \- ProductDetails: Chi tiết của sản phẩm, lưu dưới  |
-|    |           | dạng Map\<String, String\>                          |
-|    |           |                                                     |
-|    |           | \- Category: Danh mục sản phẩm, lưu dưới dạng       |
-|    |           | String                                              |
-|    |           |                                                     |
-|    |           | \- ProductImage: Ảnh của sản phẩm, lưu dưới dạng    |
-|    |           | String                                              |
-|    |           |                                                     |
-|    |           | \- ProductAddress: Địa chỉ hàng, lưu dưới dạng      |
-|    |           | String                                              |
-|    |           |                                                     |
-|    |           | \- ProductQuantity: Số lượng của sản phẩm, lưu dưới |
-|    |           | dạng INTEGER                                        |
-|    |           |                                                     |
-|    |           | \- ProductVariation: Khoá ngoại tham chiếu đến bảng |
-|    |           | Variations lưu dưới dạng String                     |
-+----+-----------+-----------------------------------------------------+
-| 3  | Các mối   | Mối quan hệ 1..1: Variations, OrderDetail           |
-|    | quan hệ   |                                                     |
-|    |           | Mối quan hệ 1..n: Không                             |
-|    |           |                                                     |
-|    |           | Mối quan hệ n..1: Shop, Category                    |
-|    |           |                                                     |
-|    |           | Mối quan hệ n..n: Không                             |
-+----+-----------+-----------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 17%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên Bảng</th>
+<th>Product</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là bảng dùng để lưu trữ sản phẩm</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Các thành phần</td>
+<td><p>- ID: Mã định danh lưu dưới dạng String</p>
+<p>- ProductName: Tên của sản phẩm, lưu dưới dạng String</p>
+<p>- ProductPrice: Giá của sản phẩm, lưu dưới dạng String</p>
+<p>- ProductDetails: Chi tiết của sản phẩm, lưu dưới dạng Map&lt;String,
+String&gt;</p>
+<p>- Category: Danh mục sản phẩm, lưu dưới dạng String</p>
+<p>- ProductImage: Ảnh của sản phẩm, lưu dưới dạng String</p>
+<p>- ProductAddress: Địa chỉ hàng, lưu dưới dạng String</p>
+<p>- ProductQuantity: Số lượng của sản phẩm, lưu dưới dạng INTEGER</p>
+<p>- ProductVariation: Khoá ngoại tham chiếu đến bảng Variations lưu
+dưới dạng String</p></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Các mối quan hệ</td>
+<td><p>Mối quan hệ 1..1: Variations, OrderDetail</p>
+<p>Mối quan hệ 1..n: Không</p>
+<p>Mối quan hệ n..1: Shop, Category</p>
+<p>Mối quan hệ n..n: Không</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Bảng Category:
 
 Bảng .: Mô tả bảng Category
 
-+----+-------------+---------------------------------------------------+
-| S  | Tên Bảng    | Category                                          |
-| TT |             |                                                   |
-+====+=============+===================================================+
-| 1  | Mô tả       | Là bảng dùng để lưu trữ danh mục sản phẩm         |
-+----+-------------+---------------------------------------------------+
-| 2  | Các thành   | \- ID: Mã định danh lưu dưới dạng String          |
-|    | phần        |                                                   |
-|    |             | \- CateName: Tên của danh mục sản phẩm, lưu dưới  |
-|    |             | dạng String                                       |
-|    |             |                                                   |
-|    |             | \- CateDesc: Miêu tả của danh mục sản phẩm, lưu   |
-|    |             | dưới dạng String                                  |
-+----+-------------+---------------------------------------------------+
-| 3  | Các mối     | Mối quan hệ 1..1: Không                           |
-|    | quan hệ     |                                                   |
-|    |             | Mối quan hệ 1..n: Product                         |
-|    |             |                                                   |
-|    |             | Mối quan hệ n..1: Không                           |
-|    |             |                                                   |
-|    |             | Mối quan hệ n..n: Không                           |
-+----+-------------+---------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 20%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên Bảng</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là bảng dùng để lưu trữ danh mục sản phẩm</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Các thành phần</td>
+<td><p>- ID: Mã định danh lưu dưới dạng String</p>
+<p>- CateName: Tên của danh mục sản phẩm, lưu dưới dạng String</p>
+<p>- CateDesc: Miêu tả của danh mục sản phẩm, lưu dưới dạng
+String</p></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Các mối quan hệ</td>
+<td><p>Mối quan hệ 1..1: Không</p>
+<p>Mối quan hệ 1..n: Product</p>
+<p>Mối quan hệ n..1: Không</p>
+<p>Mối quan hệ n..n: Không</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Bảng Variations
 
 Bảng .: Mô tả bảng Variations
 
-+----+----------+------------------------------------------------------+
-| S  | Tên Bảng | Variations                                           |
-| TT |          |                                                      |
-+====+==========+======================================================+
-| 1  | Mô tả    | Là bảng dùng để lưu trữ danh sách kiểu sản phẩm      |
-+----+----------+------------------------------------------------------+
-| 2  | Các      | \- ID: Mã định danh lưu dưới dạng String             |
-|    | thành    |                                                      |
-|    | phần     | \- ListVariation: Danh sách các kiểu sản phẩm, lưu   |
-|    |          | dưới dạng List\<VariationData\>                      |
-|    |          |                                                      |
-|    |          | \- CombineData: Danh sách cách kết hợp của các kiểu  |
-|    |          | sản phẩm, lưu dưới dạng List\<CombineData\>          |
-+----+----------+------------------------------------------------------+
-| 3  | Các mối  | Mối quan hệ 1..1: Product, CombineData               |
-|    | quan hệ  |                                                      |
-|    |          | Mối quan hệ 1..n: VariationData                      |
-|    |          |                                                      |
-|    |          | Mối quan hệ n..1: Không                              |
-|    |          |                                                      |
-|    |          | Mối quan hệ n..n: Không                              |
-+----+----------+------------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 15%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên Bảng</th>
+<th>Variations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là bảng dùng để lưu trữ danh sách kiểu sản phẩm</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Các thành phần</td>
+<td><p>- ID: Mã định danh lưu dưới dạng String</p>
+<p>- ListVariation: Danh sách các kiểu sản phẩm, lưu dưới dạng
+List&lt;VariationData&gt;</p>
+<p>- CombineData: Danh sách cách kết hợp của các kiểu sản phẩm, lưu dưới
+dạng List&lt;CombineData&gt;</p></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Các mối quan hệ</td>
+<td><p>Mối quan hệ 1..1: Product, CombineData</p>
+<p>Mối quan hệ 1..n: VariationData</p>
+<p>Mối quan hệ n..1: Không</p>
+<p>Mối quan hệ n..n: Không</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Bảng VariationData:
 
 Bảng .: Mô tả bảng VariationData
 
-+-----+-----------------+----------------------------------------------+
-| STT | Tên Bảng        | VariationData                                |
-+=====+=================+==============================================+
-| 1   | Mô tả           | Là bảng dùng để lưu trữ dữ liệu kiểu sản     |
-|     |                 | phẩm                                         |
-+-----+-----------------+----------------------------------------------+
-| 2   | Các thành phần  | \- ID: Mã định danh lưu dưới dạng String     |
-|     |                 |                                              |
-|     |                 | \- Data: Thông tin của kiểu sản phẩm         |
-+-----+-----------------+----------------------------------------------+
-| 3   | Các mối quan hệ | Mối quan hệ 1..1: Không                      |
-|     |                 |                                              |
-|     |                 | Mối quan hệ 1..n: Không                      |
-|     |                 |                                              |
-|     |                 | Mối quan hệ n..1: Variations                 |
-|     |                 |                                              |
-|     |                 | Mối quan hệ n..n: Không                      |
-+-----+-----------------+----------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 25%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên Bảng</th>
+<th>VariationData</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là bảng dùng để lưu trữ dữ liệu kiểu sản phẩm</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Các thành phần</td>
+<td><p>- ID: Mã định danh lưu dưới dạng String</p>
+<p>- Data: Thông tin của kiểu sản phẩm</p></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Các mối quan hệ</td>
+<td><p>Mối quan hệ 1..1: Không</p>
+<p>Mối quan hệ 1..n: Không</p>
+<p>Mối quan hệ n..1: Variations</p>
+<p>Mối quan hệ n..n: Không</p></td>
+</tr>
+</tbody>
+</table>
 
 -   Bảng CombineData:
 
 Bảng .: Mô tả bảng CombineData
 
-+----+------------+----------------------------------------------------+
-| S  | Tên Bảng   | CombineData                                        |
-| TT |            |                                                    |
-+====+============+====================================================+
-| 1  | Mô tả      | Là bảng dùng để lưu trữ sự kết hợp của kiểu sản    |
-|    |            | phẩm                                               |
-+----+------------+----------------------------------------------------+
-| 2  | Các thành  | \- ID: Mã định danh lưu dưới dạng String           |
-|    | phần       |                                                    |
-|    |            | \- VariationData: Kiểu Variation, lưu trữ dưới     |
-|    |            | dạng List\<VariationData\>                         |
-|    |            |                                                    |
-|    |            | \- Price: Lưu trữ giá của sản phẩm, lưu dưới dạng  |
-|    |            | NUMERIC                                            |
-|    |            |                                                    |
-|    |            | \- Stock: Số lượng của sản phẩm, lưu dưới dạng     |
-|    |            | NUMERIC                                            |
-+----+------------+----------------------------------------------------+
-| 3  | Các mối    | Mối quan hệ 1..1: Variations                       |
-|    | quan hệ    |                                                    |
-|    |            | Mối quan hệ 1..n: Không                            |
-|    |            |                                                    |
-|    |            | Mối quan hệ n..1: Không                            |
-|    |            |                                                    |
-|    |            | Mối quan hệ n..n: Không                            |
-+----+------------+----------------------------------------------------+
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 19%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>STT</th>
+<th>Tên Bảng</th>
+<th>CombineData</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Mô tả</td>
+<td>Là bảng dùng để lưu trữ sự kết hợp của kiểu sản phẩm</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Các thành phần</td>
+<td><p>- ID: Mã định danh lưu dưới dạng String</p>
+<p>- VariationData: Kiểu Variation, lưu trữ dưới dạng
+List&lt;VariationData&gt;</p>
+<p>- Price: Lưu trữ giá của sản phẩm, lưu dưới dạng NUMERIC</p>
+<p>- Stock: Số lượng của sản phẩm, lưu dưới dạng NUMERIC</p></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Các mối quan hệ</td>
+<td><p>Mối quan hệ 1..1: Variations</p>
+<p>Mối quan hệ 1..n: Không</p>
+<p>Mối quan hệ n..1: Không</p>
+<p>Mối quan hệ n..n: Không</p></td>
+</tr>
+</tbody>
+</table>
 
 #  DEMO ỨNG DỤNG
 
